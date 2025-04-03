@@ -91,7 +91,7 @@ interface Bonus {
 type ArmorKind = "head" | "chest" | "arms" | "waist" | "legs";
 
 // Individual armor piece
-interface ArmorPiece {
+export interface ArmorPiece {
     kind: ArmorKind;
     name: string;
     description: string;

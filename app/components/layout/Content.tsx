@@ -15,7 +15,7 @@ const Content = ({ children }: ContentProps) => {
             <div className="col-span-3 md:col-span-2 lg:col-span-1">
                 <Sidebar />
             </div>
-            <div className="col-span-5 md:col-span-6 lg:col-span-7 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md break-words">
+            <div className="col-span-5 md:col-span-6 lg:col-span-7 p-4 rounded-lg shadow-md break-words">
                 {children}
             </div>
         </div>

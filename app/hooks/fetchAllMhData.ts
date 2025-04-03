@@ -1,8 +1,9 @@
+'use client';
 import { useState, useEffect } from "react";
 
 const API_URL = "https://wilds.mhdb.io/";
 
-const useFetchMhData = (type: string, language?: string) => {
+const useFetchAllMhData = (endpoint: string, language?: string) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -10,8 +11,8 @@ const useFetchMhData = (type: string, language?: string) => {
     useEffect(() => {
         if(!language) return; // Ensure language is defined before making the fetch call
         
-        console.log(`Fetching from: ${API_URL}${language}/${type}`);
-        fetch(`${API_URL}${language}/${type}`)
+        console.log(`Fetching from: ${API_URL}${language}/${endpoint}`);
+        fetch(`${API_URL}${language}/${endpoint}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Network response was not ok");
@@ -27,9 +28,9 @@ const useFetchMhData = (type: string, language?: string) => {
             setError(error);
             setLoading(false);
         });
-    }, [type, language]);
+    }, [endpoint, language]);
 
     return { data, loading, error };
 }
 
-export default useFetchMhData;
+export default useFetchAllMhData;
