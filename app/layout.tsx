@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 import { DarkModeProviders } from "./providers";
 import { LanguageProvider } from "./Context/LanguageProvider";
+import Content from "./components/layout/Content";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,9 @@ export default function RootLayout({
         <LanguageProvider>
           <DarkModeProviders>
             <Navbar />
-            {children}
+            <Content>
+              {children}
+            </Content>
           </DarkModeProviders>
         </LanguageProvider>
       </body>

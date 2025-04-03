@@ -1,3 +1,4 @@
+// add supported languages here
 export const ISO639_1: Record<string, string> = {
     "English": "en",
     "Japanese": "ja",
@@ -5,9 +6,9 @@ export const ISO639_1: Record<string, string> = {
     "Spanish": "es",
     "German": "de",
     "Italian": "it",
-    "Portuguese": "pt",
+    "Portuguese": "pt-br",
     "Russian": "ru",
-    "Chinese": "zh",
+    // "Chinese": "zh_Hans_CN",
     "Korean": "ko",
     "Arabic": "ar",
 };

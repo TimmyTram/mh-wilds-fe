@@ -1,17 +1,24 @@
-// tailwind.config.js
-module.exports = {
+import type { Config } from "tailwindcss";
+
+const config: Config = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',  // Enable dark mode with class
+  darkMode: "class", // Enable dark mode with class
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',  // Custom background variable
-        foreground: 'var(--foreground)',  // Custom foreground variable
+        primary: {
+          DEFAULT: "#75b7ea"
+        },
+        complementary: "#3dc08d",
+        background: "var(--background)", // Custom background variable
+        foreground: "var(--foreground)", // Custom foreground variable
       },
     },
   },
   plugins: [],
 };
+
+export default config;

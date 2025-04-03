@@ -41,24 +41,15 @@ const LanguageDropDown = () => {
 
             {isOpen && (
                 <ul className="absolute mt-2 w-32 bg-blue-900 rounded-md shadow-lg z-10">
-                    <li
-                        className="px-4 py-2 text-white hover:bg-blue-700 cursor-pointer"
-                        onClick={() => selectLanguage(ISO639_1.English)}
-                    >
-                        English
-                    </li>
-                    <li
-                        className="px-4 py-2 text-white hover:bg-blue-700 cursor-pointer"
-                        onClick={() => selectLanguage(ISO639_1.Japanese)}
-                    >
-                        Japanese
-                    </li>
-                    <li
-                        className="px-4 py-2 text-white hover:bg-blue-700 cursor-pointer"
-                        onClick={() => selectLanguage(ISO639_1.French)}
-                    >
-                        French
-                    </li>
+                    {Object.values(ISO639_1).map((lang) => (
+                        <li
+                            key={lang}
+                            className="px-4 py-2 text-white hover:bg-blue-700 cursor-pointer"
+                            onClick={() => selectLanguage(lang)}
+                        >
+                            {convertISO639_1ToLanguageCode(lang)}
+                        </li>
+                    ))}
                 </ul>
             )}
         </div>
