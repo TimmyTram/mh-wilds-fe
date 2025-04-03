@@ -1,12 +1,26 @@
+'use client';
 
+import { FiSun, FiMoon } from 'react-icons/fi';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 const DarkModeBtn = () => {
-    return (
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-moon">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        </button>
+    const [mounted, setMounted] = useState(false);
+    const { setTheme, resolvedTheme } = useTheme();
+
+    // Ensure component is mounted before using resolvedTheme
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) {
+        return <div className="w-9 h-9 bg-gray-300 rounded-full animate-pulse"></div>; // Placeholder while loading
+    }
+
+    return resolvedTheme === 'dark' ? (
+        <FiSun onClick={() => setTheme('light')} className="cursor-pointer text-yellow-500" />
+    ) : (
+        <FiMoon onClick={() => setTheme('dark')} className="cursor-pointer text-gray-700" />
     );
 };
 

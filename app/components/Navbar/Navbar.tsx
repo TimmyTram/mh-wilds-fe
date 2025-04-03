@@ -1,6 +1,5 @@
 import DarkModeBtn from "../Buttons/DarkMode";
 
-
 const Navbar = () => {
     return (
         <div className="text-white sticky top-0 z-50 p-4 border-b-1 border-gray-500 flex flex-row justify-between items-center">
