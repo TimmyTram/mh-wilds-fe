@@ -12,8 +12,10 @@ const Navbar = () => {
                     Monster Hunter Wilds
                 </Link>
             </nav>
-            <LanguageDropDown />
-            <DarkModeBtn />
+            <div className="flex flex-row gap-8 items-center">
+                <LanguageDropDown />
+                <DarkModeBtn />
+            </div>
         </div>
     )
 }
