@@ -7,7 +7,7 @@ interface SidebarItemProps {
 
 const SidebarItem = ({ resourceName, link }: SidebarItemProps) => {
     return (
-        <Link href={link} className="flex items-center p-2 rounded-lg">
+        <Link href={link} className="flex items-center p-2 rounded-lg hover:bg-[#5a9fe1] tranisition-colors duration-200 ease-in-out">
             {resourceName}
         </Link>
     );

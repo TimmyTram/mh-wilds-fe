@@ -1,5 +1,6 @@
 'use client';
 
+import ArmorDisplay from "@/app/components/Armor/ArmorDisplay";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchMhData from "@/app/hooks/fetchMhData";
 
@@ -19,16 +20,7 @@ const Page = () => {
             {data && data.length > 0 && (
                 <div>
                     {data.map((set: any) => (
-                        <div key={set.id}>
-                            <h2>{set.name}</h2>
-                            {set.pieces && set.pieces.length > 0 && (
-                                <ul>
-                                    {set.pieces.map((piece: any) => (
-                                        <li key={piece.id}>{piece.name}</li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
+                        <ArmorDisplay key={set.id} armorSet={set} />
                     ))}
                 </div>
             )}
