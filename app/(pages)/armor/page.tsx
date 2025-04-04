@@ -18,8 +18,9 @@ const Page = () => {
             <h1 className="min-w-[100px]">Armor Sets</h1>
             {loading && <p>Loading...</p>}
             {error && <p>Error fetching data.</p>}
+
             {data && data.length > 0 && (
-                <div>
+                <div className="flex flex-wrap gap-4">
                     {data.map((set: ArmorSet) => (
                         <ArmorDisplay key={set.id} armorSet={set} />
                     ))}
