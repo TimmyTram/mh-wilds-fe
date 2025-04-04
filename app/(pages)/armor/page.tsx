@@ -15,7 +15,7 @@ const Page = () => {
 
     return (
         <div className="px-32 py-4">
-            <h1 className="min-w-[100px]">Armor Sets</h1>
+            <h1 className="flex justify-center items-center text-4xl pb-10">Armor Sets</h1>
             {loading && <p>Loading...</p>}
             {error && <p>Error fetching data.</p>}
 

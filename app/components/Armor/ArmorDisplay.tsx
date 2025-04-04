@@ -7,6 +7,12 @@ interface ArmorDisplayProps {
     armorSet: ArmorSet;
 }
 
+function getArmorSetImage(armorSet: ArmorSet) {
+    const img = armorSetsMap.get(armorSet.gameId);
+    if (img === undefined) return "Unknown";
+    return img;
+}
+
 const ArmorDisplay = ({ armorSet }: ArmorDisplayProps) => {
     return (
         <Link href={`/armor/${armorSet.id}`} className="w-[200px]">
@@ -15,7 +21,7 @@ const ArmorDisplay = ({ armorSet }: ArmorDisplayProps) => {
                     {/* For some reason the API does not return the name of the armorset in other languages? */}
                     <p className="text-center text-sm font-semibold">{armorSet.name || (armorSet.pieces[0] && armorSet.pieces[0].name)}</p>
                     <Image 
-                        src={`/${armorSetsMap.get(armorSet.gameId)}.webp`}
+                        src={`/MonsterImages/${getArmorSetImage(armorSet)}.webp`}
                         width={128}
                         height={128}
                         alt=""
