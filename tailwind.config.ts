@@ -9,9 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: "#75b7ea"
-        },
+        primary: "var(--color-primary)", // Custom primary color variable
+        secondary: "var(--color-secondary)", // Custom secondary color variable
         complementary: "#3dc08d",
         background: "var(--background)", // Custom background variable
         foreground: "var(--foreground)", // Custom foreground variable
