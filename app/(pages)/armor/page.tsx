@@ -4,6 +4,7 @@ import ArmorDisplay from "@/app/components/Armor/ArmorDisplay";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { ArmorSet } from "@/app/types/ArmorData";
+import { sortArmorDataByName } from "@/app/utils/utils";
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
@@ -13,6 +14,8 @@ const Page = () => {
         return <p>Loading language...</p>;
     }
 
+    const sortedData = data ? sortArmorDataByName(data, language) : [];
+    
     return (
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Armor Sets</h1>
@@ -21,7 +24,7 @@ const Page = () => {
 
             {data && data.length > 0 && (
                 <div className="flex flex-wrap gap-4">
-                    {data.map((set: ArmorSet) => (
+                    {sortedData.map((set: ArmorSet) => (
                         <ArmorDisplay key={set.id} armorSet={set} />
                     ))}
                 </div>
