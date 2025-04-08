@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 
 const API_URL = "https://wilds.mhdb.io/";
 
-const useFetchSingleMhData = (endpoint: string, id: string, language?: string) => {
-    const [data, setData] = useState({});
+const useFetchSingleMhData = <T>(endpoint: string, id: string, language?: string) => {
+    const [data, setData] = useState<T | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 

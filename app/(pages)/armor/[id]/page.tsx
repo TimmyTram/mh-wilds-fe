@@ -13,9 +13,7 @@ import ArmorGroupBonus from "@/app/components/Armor/ArmorGroupBonus";
 const Page = () => {
     const { id } = useParams();
     const { language, isLanguageLoaded } = useLanguageContext();
-    const { data, error, loading } = useFetchSingleMhData('armor/sets', String(id), language) as { data: ArmorSet | null; error: any; loading: boolean };
-
-    console.log(data);
+    const { data, error, loading } = useFetchSingleMhData<ArmorSet>('armor/sets', String(id), language)
 
     if (!isLanguageLoaded) {
         return <p>Loading language...</p>;
@@ -26,7 +24,7 @@ const Page = () => {
             {loading && <p>Loading...</p>}
             {error && <p>Error fetching data.</p>}
 
-            <div className="">
+            <div>
 
                 {data && data.name && (
                     <div className="flex flex-col items-start justify-start mb-4">
