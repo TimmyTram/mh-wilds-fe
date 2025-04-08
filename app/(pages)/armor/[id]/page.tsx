@@ -5,6 +5,8 @@ import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { ArmorSet, ArmorPiece } from "@/app/types/ArmorData";
 import { useParams } from "next/navigation";
 import Divider from "../../../components/UI/Divider/Divider";
+import LoreDisplay from "@/app/components/Armor/LoreDisplay";
+import SlotsAndSkillsDisplay from "@/app/components/Armor/SlotsAndSkillsDisplay";
 
 const Page = () => {
     const { id } = useParams();
@@ -18,11 +20,11 @@ const Page = () => {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center p-4 border-4">
+        <div className="flex flex-col items-center justify-center">
             {loading && <p>Loading...</p>}
             {error && <p>Error fetching data.</p>}
 
-            <div className="border-4 p-4">
+            <div className="">
 
                 {data && data.name && (
                     <div className="flex flex-col items-start justify-start mb-4">
@@ -30,13 +32,13 @@ const Page = () => {
                     </div>
                 )}
                 <Divider />
+
                 {data && data.pieces && data.pieces.length > 0 && (
-                    data.pieces.map((piece: ArmorPiece) => (
-                        <div key={piece.id} className="flex flex-row items-start justify-start mb-4 gap-4">
-                            <p className="text-left">{piece.name}</p>
-                            <p className="text-left">{piece.description}</p>
-                        </div>
-                    ))
+                    <SlotsAndSkillsDisplay pieces={data.pieces} />
+                )}
+
+                {data && data.pieces && data.pieces.length > 0 && (
+                    <LoreDisplay pieces={data.pieces} />
                 )}
             </div>
         </div>

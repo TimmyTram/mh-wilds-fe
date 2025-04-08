@@ -18,17 +18,14 @@ const Content = ({ children }: ContentProps) => {
     // The sidebar is always visible, while the main content is scrollable.
     return (
         <>
-        <Navbar toggleSidebar={() => {
-            console.log("toggleSidebar clicked");
-            setShowSidebar(!showSidebar);
-        }}/>
+        <Navbar toggleSidebar={() => setShowSidebar(!showSidebar)}/>
         <div className="grid grid-cols-8 gap-4 p-4">
                 {showSidebar && (
                     <div className="col-span-3 md:col-span-2 lg:col-span-1">
                         <Sidebar />
                     </div>
                 )}
-                <div className={`p-4 rounded-lg shadow-md break-words ${showSidebar ? 'col-span-5 md:col-span-6 lg:col-span-7' : 'col-span-8'}`}>
+                <div className={`p-4 break-words ${showSidebar ? 'col-span-5 md:col-span-6 lg:col-span-7' : 'col-span-8'}`}>
                     {children}
                 </div>
             </div>
