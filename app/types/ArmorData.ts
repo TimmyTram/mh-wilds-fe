@@ -1,6 +1,6 @@
 
 // Basic types
-interface Resistances {
+export interface Resistances {
     fire: number;
     water: number;
     ice: number;
@@ -8,12 +8,12 @@ interface Resistances {
     dragon: number;
 }
 
-interface Defense {
+export interface Defense {
     base: number;
     max: number;
 }
 
-interface Item {
+export interface Item {
     id: number;
     gameId: number;
     rarity: number;
@@ -24,13 +24,13 @@ interface Item {
     recipes: any[]; // This appears to be empty in the data
 }
 
-interface Material {
+export interface Material {
     item: Item;
     quantity: number;
     id: number;
 }
 
-interface Crafting {
+export interface Crafting {
     armor: {
         id: number;
     };
@@ -39,7 +39,7 @@ interface Crafting {
     id: number;
 }
 
-interface SkillRank {
+export interface SkillRank {
     id: number;
     level?: number;
     description?: string;
@@ -48,7 +48,7 @@ interface SkillRank {
     };
 }
 
-interface Skill {
+export interface Skill {
     skill: {
         id: number;
         gameId?: number;
@@ -62,7 +62,7 @@ interface Skill {
     id: number;
 }
 
-interface BonusRank {
+export interface BonusRank {
     bonus: {
         id: number;
     };
@@ -78,7 +78,7 @@ interface BonusRank {
     id: number;
 }
 
-interface Bonus {
+export interface Bonus {
     id: number;
     skill: {
         id: number;

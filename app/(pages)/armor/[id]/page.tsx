@@ -2,11 +2,13 @@
 
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
-import { ArmorSet, ArmorPiece } from "@/app/types/ArmorData";
+import { ArmorSet } from "@/app/types/ArmorData";
 import { useParams } from "next/navigation";
 import Divider from "../../../components/UI/Divider/Divider";
 import LoreDisplay from "@/app/components/Armor/LoreDisplay";
 import SlotsAndSkillsDisplay from "@/app/components/Armor/SlotsAndSkillsDisplay";
+import ArmorResistanceDisplay from "@/app/components/Armor/ArmorResistancesDisplay";
+import ArmorGroupBonus from "@/app/components/Armor/ArmorGroupBonus";
 
 const Page = () => {
     const { id } = useParams();
@@ -34,11 +36,19 @@ const Page = () => {
                 <Divider />
 
                 {data && data.pieces && data.pieces.length > 0 && (
-                    <SlotsAndSkillsDisplay pieces={data.pieces} />
-                )}
-
-                {data && data.pieces && data.pieces.length > 0 && (
-                    <LoreDisplay pieces={data.pieces} />
+                    <>
+                        <SlotsAndSkillsDisplay pieces={data.pieces} />
+                        <Divider />
+                        {data.bonus && data.groupBonus && (
+                            <>
+                                <ArmorGroupBonus bonus={data.bonus} groupBonus={data.groupBonus} />
+                                <Divider />
+                            </>
+                        )}
+                        <ArmorResistanceDisplay pieces={data.pieces} />
+                        <Divider />
+                        <LoreDisplay pieces={data.pieces} />
+                    </>
                 )}
             </div>
         </div>

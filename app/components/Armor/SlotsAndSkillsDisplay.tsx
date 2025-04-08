@@ -43,7 +43,6 @@ const SlotsAndSkillsDisplay = ({ pieces }: SlotsAndSkillsDisplayProps) => {
                             </ul>
                         </div>
                     </div>
-                    <Divider />
                 </div>
             ))}
         </>
