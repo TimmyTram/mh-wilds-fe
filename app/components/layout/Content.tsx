@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from "react";
-import Sidebar from "../Sidebar/Sidebar";
-import Navbar from "../Navbar/Navbar";
+import Sidebar from "../UI/Sidebar/Sidebar";
+import Navbar from "../UI/Navbar/Navbar";
 
 interface ContentProps {
     children: React.ReactNode;

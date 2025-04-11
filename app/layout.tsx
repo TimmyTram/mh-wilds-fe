@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar/Navbar";
 import { DarkModeProviders } from "./providers";
 import { LanguageProvider } from "./Context/LanguageProvider";
 import Content from "./components/layout/Content";

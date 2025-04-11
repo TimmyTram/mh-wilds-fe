@@ -5,11 +5,11 @@ import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { ArmorPiece, ArmorSet } from "@/app/types/ArmorData";
 import { useParams } from "next/navigation";
 import Divider from "../../../components/UI/Divider/Divider";
-import LoreDisplay from "@/app/components/Armor/LoreDisplay";
-import SlotsAndSkillsDisplay from "@/app/components/Armor/SlotsAndSkillsDisplay";
-import ArmorResistanceDisplay from "@/app/components/Armor/ArmorResistancesDisplay";
-import ArmorGroupBonus from "@/app/components/Armor/ArmorGroupBonus";
-import CraftingDisplay from "@/app/components/Crafting/CraftingDisplay";
+import LoreDisplay from "@/app/components/MonsterHunter/Armor/LoreDisplay";
+import SlotsAndSkillsDisplay from "@/app/components/MonsterHunter/Armor/SlotsAndSkillsDisplay";
+import ArmorResistanceDisplay from "@/app/components/MonsterHunter/Armor/ArmorResistancesDisplay";
+import ArmorGroupBonus from "@/app/components/MonsterHunter/Armor/ArmorGroupBonus";
+import CraftingDisplay from "@/app/components/MonsterHunter/Crafting/CraftingDisplay";
 
 const Page = () => {
     const { id } = useParams();

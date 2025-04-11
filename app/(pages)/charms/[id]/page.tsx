@@ -5,8 +5,7 @@ import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { useParams } from "next/navigation";
 import Divider from "../../../components/UI/Divider/Divider";
 import { CharmRank, CharmSet } from "@/app/types/CharmData";
-import CraftingDisplay from "@/app/components/Crafting/CraftingDisplay";
-import { BaseCrafting } from "@/app/types/Crafting";
+import CraftingDisplay from "@/app/components/MonsterHunter/Crafting/CraftingDisplay";
 
 const Page = () => {
     const { id } = useParams();

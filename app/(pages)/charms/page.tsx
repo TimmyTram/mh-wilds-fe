@@ -1,6 +1,6 @@
 'use client';
 
-import CharmDisplay from "@/app/components/Charms/CharmsDisplay";
+import CharmDisplay from "@/app/components/MonsterHunter/Charms/CharmsDisplay";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { CharmSet } from "@/app/types/CharmData";

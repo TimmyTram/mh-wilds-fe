@@ -1,5 +1,5 @@
 import { ArmorPiece } from "@/app/types/ArmorData";
-import Divider from "../UI/Divider/Divider";
+import Divider from "../../UI/Divider/Divider";
 
 interface ArmorResistancesDisplayProps {
     pieces: ArmorPiece[];

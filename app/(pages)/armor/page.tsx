@@ -1,6 +1,6 @@
 'use client';
 
-import ArmorDisplay from "@/app/components/Armor/ArmorDisplay";
+import ArmorDisplay from "@/app/components/MonsterHunter/Armor/ArmorDisplay";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { ArmorSet } from "@/app/types/ArmorData";
