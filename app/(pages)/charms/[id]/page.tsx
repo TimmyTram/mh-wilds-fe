@@ -13,48 +13,68 @@ const Page = () => {
     const { data, error, loading } = useFetchSingleMhData<CharmSet>('charms', String(id), language);
 
     if (!isLanguageLoaded) {
-        return <p>Loading language...</p>;
+        return <p className="p-4">Loading language...</p>;
     }
 
-    console.log(data);
-
     return (
-        <div className="flex flex-col items-center justify-center">
-            {loading && <p>Loading...</p>}
-            {error && <p>Error fetching data.</p>}
+        <div className="w-full px-4 md:px-8 py-4 overflow-x-auto">
+            {loading && <p className="mb-4">Loading...</p>}
+            {error && <p className="mb-4">Error fetching data.</p>}
 
-            <div className="px-4 py-4 w-full sm:px-8 md:px-16 lg:px-32">
-                <div className="grid grid-cols-4 gap-4 mb-2 font-semibold">
+            <div className="min-w-full">
+                {/* Desktop Table Header */}
+                <div className="hidden md:grid grid-cols-4 gap-4 mb-2 font-semibold text-base md:text-lg">
                     <p>Charm Name</p>
                     <p>Charm Description</p>
                     <p>Rarity</p>
                     <p>Skill</p>
                 </div>
 
-                {data && data.ranks && data.ranks.length > 0 && (
-                    data.ranks.map((rank: CharmRank, index: number) => (
-                        <div key={index} className="grid grid-cols-4 gap-4 mb-2">
-                            <p>{rank.name}</p>
-                            <p>{rank.description}</p>
+                <Divider />
+
+                {data && data.ranks && data.ranks.length > 0 && data.ranks.map((rank: CharmRank, index: number) => (
+                    <div key={index}>
+                        {/* Desktop Row */}
+                        <div className="hidden md:grid grid-cols-4 gap-4 mb-2 text-sm md:text-base">
+                            <p className="break-words">{rank.name}</p>
+                            <p className="break-words">{rank.description}</p>
                             <p>{rank.rarity}</p>
-                            {rank.skills.map((skill) => (
-                                <p key={skill.skill.id}>
-                                    {skill.skill.name} (Level: {skill.level})
-                                </p>
-                            ))}
+                            <div className="space-y-1">
+                                {rank.skills.map((skill) => (
+                                    <p key={skill.skill.id}>
+                                        {skill.skill.name} (Level: {skill.level})
+                                    </p>
+                                ))}
+                            </div>
                         </div>
-                    ))
-                )}
+
+                        {/* Mobile Card */}
+                        <div className="block md:hidden p-4 border rounded-md shadow-md space-y-2 mb-4">
+                            <p className="font-bold text-base">{rank.name}</p>
+                            <p className="text-sm">{rank.description}</p>
+                            <p className="text-sm">Rarity: {rank.rarity}</p>
+                            <div className="mt-2 space-y-1">
+                                {rank.skills.map((skill) => (
+                                    <p key={skill.skill.id} className="text-sm">
+                                        {skill.skill.name} (Level: {skill.level})
+                                    </p>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+
                 <Divider />
                 {data && data.ranks && data.ranks.length > 0 && (
-                    data.ranks.map((rank: CharmRank, index: number) => (
-                        <div key={index} className="">
-                            <CraftingDisplay itemName={rank.name} crafting={rank.crafting} />
-                            <Divider />
-                        </div>
-                    ))
+                    <div className="space-y-6">
+                        {data.ranks.map((rank: CharmRank, index: number) => (
+                            <div key={index}>
+                                <CraftingDisplay itemName={rank.name} crafting={rank.crafting} />
+                                <Divider />
+                            </div>
+                        ))}
+                    </div>
                 )}
-
             </div>
         </div>
     );

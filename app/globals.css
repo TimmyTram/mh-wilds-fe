@@ -23,6 +23,7 @@ html.light {
 html.dark {
   --background: #192734;
   --foreground: #ededed;
+
 }
 
 body {
