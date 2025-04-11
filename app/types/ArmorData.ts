@@ -1,4 +1,8 @@
 import { Skill } from "./SkillData";
+import { Material } from "./MaterialData";
+import { Item } from "./MaterialData";
+import { BaseCrafting } from "./Crafting";
+
 
 // Basic types
 export interface Resistances {
@@ -14,30 +18,10 @@ export interface Defense {
     max: number;
 }
 
-export interface Item {
-    id: number;
-    gameId: number;
-    rarity: number;
-    name: string;
-    description: string;
-    value: number;
-    carryLimit: number;
-    recipes: any[]; // This appears to be empty in the data
-}
-
-export interface Material {
-    item: Item;
-    quantity: number;
-    id: number;
-}
-
-export interface Crafting {
+export interface ArmorCrafting extends BaseCrafting {
     armor: {
         id: number;
     };
-    materials: Material[];
-    zennyCost: number;
-    id: number;
 }
 
 
@@ -83,7 +67,7 @@ export interface ArmorPiece {
     armorSet: {
         id: number;
     };
-    crafting: Crafting;
+    crafting: ArmorCrafting;
     id: number;
 }
 

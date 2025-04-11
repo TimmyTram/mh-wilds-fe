@@ -1,4 +1,5 @@
 import { Skill } from './SkillData';
+import { BaseCrafting } from './Crafting';
 
 export interface CharmSet {
     id: number;
@@ -13,4 +14,5 @@ export interface CharmRank {
     rarity: number;
     skills: Skill[];
     description: string;
+    crafting: BaseCrafting;
 };

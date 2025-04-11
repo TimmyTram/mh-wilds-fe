@@ -2,13 +2,14 @@
 
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
-import { ArmorSet } from "@/app/types/ArmorData";
+import { ArmorPiece, ArmorSet } from "@/app/types/ArmorData";
 import { useParams } from "next/navigation";
 import Divider from "../../../components/UI/Divider/Divider";
 import LoreDisplay from "@/app/components/Armor/LoreDisplay";
 import SlotsAndSkillsDisplay from "@/app/components/Armor/SlotsAndSkillsDisplay";
 import ArmorResistanceDisplay from "@/app/components/Armor/ArmorResistancesDisplay";
 import ArmorGroupBonus from "@/app/components/Armor/ArmorGroupBonus";
+import CraftingDisplay from "@/app/components/Crafting/CraftingDisplay";
 
 const Page = () => {
     const { id } = useParams();
@@ -47,6 +48,16 @@ const Page = () => {
                         <Divider />
                         <LoreDisplay pieces={data.pieces} />
                     </>
+                )}
+
+                <Divider />
+                {data && data.pieces && data.pieces.length > 0 && (
+                    data.pieces.map((rank: ArmorPiece, index: number) => (
+                        <div key={index} className="">
+                            <CraftingDisplay itemName={rank.name} crafting={rank.crafting} />
+                            <Divider />
+                        </div>
+                    ))
                 )}
             </div>
         </div>

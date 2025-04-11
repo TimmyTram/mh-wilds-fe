@@ -5,6 +5,8 @@ import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { useParams } from "next/navigation";
 import Divider from "../../../components/UI/Divider/Divider";
 import { CharmRank, CharmSet } from "@/app/types/CharmData";
+import CraftingDisplay from "@/app/components/Crafting/CraftingDisplay";
+import { BaseCrafting } from "@/app/types/Crafting";
 
 const Page = () => {
     const { id } = useParams();
@@ -14,6 +16,8 @@ const Page = () => {
     if (!isLanguageLoaded) {
         return <p>Loading language...</p>;
     }
+
+    console.log(data);
 
     return (
         <div className="flex flex-col items-center justify-center">
@@ -42,6 +46,16 @@ const Page = () => {
                         </div>
                     ))
                 )}
+                <Divider />
+                {data && data.ranks && data.ranks.length > 0 && (
+                    data.ranks.map((rank: CharmRank, index: number) => (
+                        <div key={index} className="">
+                            <CraftingDisplay itemName={rank.name} crafting={rank.crafting} />
+                            <Divider />
+                        </div>
+                    ))
+                )}
+
             </div>
         </div>
     );
