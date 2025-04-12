@@ -4,7 +4,7 @@ import ArmorDisplay from "@/app/components/MonsterHunter/Armor/ArmorDisplay";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { ArmorSet } from "@/app/types/ArmorData";
-import { sortArmorDataByName } from "@/app/utils/utils";
+import { sortByName } from "@/app/utils/utils";
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
@@ -14,7 +14,9 @@ const Page = () => {
         return <p>Loading language...</p>;
     }
 
-    const sortedData = data ? sortArmorDataByName(data, language) : [];
+    const sortedData = data ? sortByName(data, language, item => item.name) : [];
+
+    console.log(sortedData);
     
     return (
         <div className="px-32 py-4">

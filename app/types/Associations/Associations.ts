@@ -1,4 +1,3 @@
-
 // really stupid way to map armor sets to their names, but it works for now
 const armorMappings: [string, number[]][] = [
     ["Congalala", [-2117203456, -1456507776, 672494016]],
@@ -35,9 +34,45 @@ const armorMappings: [string, number[]][] = [
     ["Nu_Udra", [327345216, 1044071680, 1178166400]],
     ["Rompopolo", [1064459456, 2045212544, 2113410944]],
     ["Ajarakan", [1254402048, 1354790272, 1905422464]],
-    ["GFulgur", [1493203456, 1725739136]]
+    ["GFulgur", [1493203456, 1725739136]],
+    ["Zoh_Shia", [30569, 22297]],
+    ["Mizutsune", [30086, 12183]],
 ];
 
 export const armorSetsMap = new Map<number, string>(
     armorMappings.flatMap(([name, ids]) => ids.map(id => [id, name]))
 );
+
+// Game ID to Monster Name mapping
+export const monsterMap = new Map<number, string>([
+    [-2003468672, "Zoh_Shia"],
+    [-1916429696, "GDoshaguma"],
+    [-1547364608, "Rey_Dau"],
+    [-1528962176, "Lala_Barina"],
+    [-1440201088, "Congalala"],
+    [-1363370496, "Nerscylla"],
+    [-758250816, "Gore_Magala"],
+    [-535078400, "Gravios"],
+    [-283654400, "GArkveld"],
+    [-34937520, "Quematrice"],
+    [15, "Doshaguma"],
+    [16, "Balahara"],
+    [26, "Rathian"],
+    [33, "Chatacabra"],
+    [32634, "Mizutsune"],
+    [107194928, "GFulgur"],
+    [222933952, "Hirabami"],
+    [402056736, "Yian_Kut_Ku"],
+    [567628288, "Rompopolo"],
+    [746996864, "Arkveld"],
+    [777460864, "Ajarakan"],
+    [1049705664, "Gypceros"],
+    [1401863296, "Xu_Wu"],
+    [1411933184, "GRathalos"],
+    [1467998976, "Uth_Duna"],
+    [1553456768, "Jin_Dahaad"],
+    [1657778432, "Nu_Udra"],
+    [1663995904, "GEbony"],
+    [1965232896, "Rathalos"],
+    [2129596800, "Blangonga"],
+]);

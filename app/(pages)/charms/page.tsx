@@ -4,7 +4,7 @@ import CharmDisplay from "@/app/components/MonsterHunter/Charms/CharmsDisplay";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { CharmSet } from "@/app/types/CharmData";
-import { sortCharmDataByName } from "@/app/utils/utils";
+import { sortByName } from "@/app/utils/utils";
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
@@ -14,7 +14,7 @@ const Page = () => {
         return <p>Loading language...</p>;
     }
 
-    const sortedData = data ? sortCharmDataByName(data, language) : [];
+    const sortedData = data ? sortByName(data, language, item => item.ranks[0]?.name) : [];
 
     return (
         <div className="px-32 py-4">
