@@ -5,25 +5,28 @@ import { getImage } from "@/app/utils/utils";
 
 interface MonsterHeaderProps {
     monster: Monster | null;
+    imgWidth: number;
+    imgHeight: number;
+    imgClassName?: string;
 }
 
 
-const MonsterHeader = ({ monster }: MonsterHeaderProps) => {
+const MonsterHeader = ({ monster, imgWidth, imgHeight, imgClassName }: MonsterHeaderProps) => {
     
     if (!monster) {
         return <p>Loading...</p>;
     }
     
     return (
-        <div className="flex flex-row border">
+        <div className="flex flex-col items-center justify-center">
             <Image
                 src={getImage(monster, monsterMap)}
                 alt={monster.name}
-                width={200}
-                height={200}
-                className="rounded-lg"
+                width={imgWidth}
+                height={imgHeight}
+                className={`${imgClassName}`}
             />
-            <p>{monster.name}</p>
+            <p className="text-xl font-bold mt-4">{monster.name}</p>
         </div>
     );
 };

@@ -1,9 +1,7 @@
-@import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom CSS Variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -16,14 +14,15 @@ body {
 }
 
 html.light {
-  --background: #ffffff;
+  --background: #DEE4E7;
   --foreground: #171717;
+  --color-sidebar: #FF0000;
 }
 
 html.dark {
   --background: #192734;
   --foreground: #ededed;
-
+  --color-sidebar: #0000FF;
 }
 
 body {

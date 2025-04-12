@@ -29,8 +29,12 @@ const Page = () => {
             {loading && <p>Loading...</p>}
             {error && <p>Error fetching data.</p>}
 
-            <MonsterHeader monster={data} />
-            <MonsterWeaknessChart monster={data} />
+            <div className="grid grid-cols-8">
+                <div className="col-span-8">
+                    <MonsterHeader monster={data} imgWidth={256} imgHeight={256} imgClassName={"rounded-xl"} />
+                </div>
+                <MonsterWeaknessChart monster={data} />
+            </div>
             
 
         </div>

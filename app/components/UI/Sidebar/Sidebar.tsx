@@ -2,7 +2,7 @@ import SidebarItem from "./SidebarItems/SidebarItem";
 
 const Sidebar = () => {
     return (
-        <div className="bg-primary flex flex-col gap-2 sticky top-24 p-4 rounded-lg shadow-md overflow-y-auto break-words">
+        <div className="bg-sidebar flex flex-col gap-2 sticky top-24 p-4 rounded-lg shadow-md overflow-y-auto break-words">
             
             <h2>Navigation Resources</h2>
             <ul>

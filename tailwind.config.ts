@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        sidebar: "var(--color-sidebar)",
         primary: "var(--color-primary)", // Custom primary color variable
         secondary: "var(--color-secondary)", // Custom secondary color variable
         complementary: "#3dc08d",
