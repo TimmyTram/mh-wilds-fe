@@ -11,7 +11,6 @@ const Sidebar = () => {
                 <SidebarItem resourceName="Weapons" link="/weapons" />
                 <SidebarItem resourceName="Charms" link="/charms" />
                 <SidebarItem resourceName="Items" link="/items" />
-                WIP
             </ul>
         </div>
     );
