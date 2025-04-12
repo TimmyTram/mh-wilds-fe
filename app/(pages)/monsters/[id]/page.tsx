@@ -33,9 +33,11 @@ const Page = () => {
                 <div className="col-span-8">
                     <MonsterHeader monster={data} imgWidth={256} imgHeight={256} imgClassName={"rounded-xl"} />
                 </div>
-                <MonsterWeaknessChart monster={data} />
+                <div className="col-span-8">
+                    <MonsterWeaknessChart monster={data} />
+                </div>
             </div>
-            
+
 
         </div>
     );

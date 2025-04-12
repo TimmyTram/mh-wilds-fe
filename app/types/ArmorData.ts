@@ -1,6 +1,4 @@
 import { Skill } from "./SkillData";
-import { Material } from "./MaterialData";
-import { Item } from "./MaterialData";
 import { BaseCrafting } from "./Crafting";
 
 
