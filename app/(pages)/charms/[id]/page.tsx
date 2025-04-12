@@ -6,15 +6,65 @@ import { useParams } from "next/navigation";
 import Divider from "../../../components/UI/Divider/Divider";
 import { CharmRank, CharmSet } from "@/app/types/CharmData";
 import CraftingDisplay from "@/app/components/MonsterHunter/Crafting/CraftingDisplay";
+import { useIsMobile } from "@/app/hooks/frontend/useIsMobile";
+
+const CharmHeader = () => (
+    <div className="hidden md:grid grid-cols-4 gap-4 mb-2 font-semibold text-base md:text-lg">
+        <p>Charm Name</p>
+        <p>Charm Description</p>
+        <p>Rarity</p>
+        <p>Skill</p>
+    </div>
+);
+
+const CharmRow = ({ rank }: { rank: CharmRank }) => (
+    <div className="hidden md:grid grid-cols-4 gap-4 mb-2 text-sm md:text-base">
+        <p className="break-words">{rank.name}</p>
+        <p className="break-words">{rank.description}</p>
+        <p>{rank.rarity}</p>
+        <div className="space-y-1">
+            {rank.skills.map((skill) => (
+                <p key={skill.skill.id}>
+                    {skill.skill.name} (Level: {skill.level})
+                </p>
+            ))}
+        </div>
+    </div>
+);
+
+const CharmMobileCard = ({ rank }: { rank: CharmRank }) => (
+    <div className="block md:hidden p-4 border rounded-md shadow-md space-y-2 mb-4">
+        <p className="font-bold text-base">{rank.name}</p>
+        <p className="text-sm">{rank.description}</p>
+        <p className="text-sm">Rarity: {rank.rarity}</p>
+        <div className="mt-2 space-y-1">
+            {rank.skills.map((skill) => (
+                <p key={skill.skill.id} className="text-sm">
+                    {skill.skill.name} (Level: {skill.level})
+                </p>
+            ))}
+        </div>
+    </div>
+);
+
+const CharmCraftingSection = ({ ranks }: { ranks: CharmRank[] }) => (
+    <div className="space-y-6">
+        {ranks.map((rank, index) => (
+            <div key={index}>
+                <CraftingDisplay itemName={rank.name} crafting={rank.crafting} />
+                <Divider />
+            </div>
+        ))}
+    </div>
+);
 
 const Page = () => {
     const { id } = useParams();
     const { language, isLanguageLoaded } = useLanguageContext();
     const { data, error, loading } = useFetchSingleMhData<CharmSet>('charms', String(id), language);
+    const isMobile = useIsMobile(768);
 
-    if (!isLanguageLoaded) {
-        return <p className="p-4">Loading language...</p>;
-    }
+    if (!isLanguageLoaded) return <p className="p-4">Loading language...</p>;
 
     return (
         <div className="w-full px-4 md:px-8 py-4 overflow-x-auto">
@@ -22,58 +72,22 @@ const Page = () => {
             {error && <p className="mb-4">Error fetching data.</p>}
 
             <div className="min-w-full">
-                {/* Desktop Table Header */}
-                <div className="hidden md:grid grid-cols-4 gap-4 mb-2 font-semibold text-base md:text-lg">
-                    <p>Charm Name</p>
-                    <p>Charm Description</p>
-                    <p>Rarity</p>
-                    <p>Skill</p>
-                </div>
-
+                {!isMobile && <CharmHeader />}
                 <Divider />
 
-                {data && data.ranks && data.ranks.length > 0 && data.ranks.map((rank: CharmRank, index: number) => (
-                    <div key={index}>
-                        {/* Desktop Row */}
-                        <div className="hidden md:grid grid-cols-4 gap-4 mb-2 text-sm md:text-base">
-                            <p className="break-words">{rank.name}</p>
-                            <p className="break-words">{rank.description}</p>
-                            <p>{rank.rarity}</p>
-                            <div className="space-y-1">
-                                {rank.skills.map((skill) => (
-                                    <p key={skill.skill.id}>
-                                        {skill.skill.name} (Level: {skill.level})
-                                    </p>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Mobile Card */}
-                        <div className="block md:hidden p-4 border rounded-md shadow-md space-y-2 mb-4">
-                            <p className="font-bold text-base">{rank.name}</p>
-                            <p className="text-sm">{rank.description}</p>
-                            <p className="text-sm">Rarity: {rank.rarity}</p>
-                            <div className="mt-2 space-y-1">
-                                {rank.skills.map((skill) => (
-                                    <p key={skill.skill.id} className="text-sm">
-                                        {skill.skill.name} (Level: {skill.level})
-                                    </p>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                ))}
-
-                <Divider />
-                {data && data.ranks && data.ranks.length > 0 && (
-                    <div className="space-y-6">
-                        {data.ranks.map((rank: CharmRank, index: number) => (
+                {data?.ranks?.length ? (
+                    <>
+                        {data.ranks.map((rank, index) => (
                             <div key={index}>
-                                <CraftingDisplay itemName={rank.name} crafting={rank.crafting} />
-                                <Divider />
+                                {isMobile ? <CharmMobileCard rank={rank} /> : <CharmRow rank={rank} />}
                             </div>
                         ))}
-                    </div>
+
+                        <Divider />
+                        <CharmCraftingSection ranks={data.ranks} />
+                    </>
+                ) : (
+                    <p className="mt-4">No ranks available.</p>
                 )}
             </div>
         </div>

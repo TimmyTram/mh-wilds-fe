@@ -79,7 +79,7 @@ const ResistanceRow = ({ piece, view }: { piece: ArmorPiece; view: "mobile" | "t
 };
 
 const ArmorResistanceDisplay = ({ pieces }: ArmorResistancesDisplayProps) => {
-    const isMobile = useIsMobile();
+    const isMobile = useIsMobile(1024); // Mobile if the width is less than 1024px
     const isTablet = !isMobile && typeof window !== "undefined" && window.innerWidth < 1024;
     const view: "mobile" | "tablet" | "desktop" = isMobile ? "mobile" : isTablet ? "tablet" : "desktop";
 
