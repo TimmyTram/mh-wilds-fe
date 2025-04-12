@@ -9,16 +9,16 @@ interface NavbarProps {
 
 const Navbar = ({ toggleSidebar }: NavbarProps) => {
     return (
-        <div className="text-white sticky top-0 z-50 p-4 border-b-1 border-gray-500 flex flex-row justify-between items-center backdrop-blur-md">
+        <div className="text-white sticky top-0 z-50 p-4 border-b-4 border-gray-500 flex flex-row justify-between items-center backdrop-blur-md">
             <nav className="flex items-center gap-4">
                 <button
                     className="cursor-pointer"
                     onClick={toggleSidebar}>
-                    <FiSidebar />
+                    <FiSidebar className="text-xl text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-500"/>
                 </button>
                 
                 <Link
-                    className="text-gray-500 hover:text-white transition-colors duration-300"
+                    className="text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-500 transition-colors duration-300"
                     href="/">
                     Monster Hunter Wilds
                 </Link>

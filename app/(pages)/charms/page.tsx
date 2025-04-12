@@ -1,6 +1,6 @@
 'use client';
 
-import CharmDisplay from "@/app/components/MonsterHunter/Charms/CharmsDisplay";
+import CharmCard from "@/app/components/MonsterHunter/Charms/CharmCard";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { CharmSet } from "@/app/types/CharmData";
@@ -25,7 +25,7 @@ const Page = () => {
             {data && data.length > 0 && (
                 <div className="flex flex-wrap gap-4">
                     {sortedData.map((charmSet: CharmSet) => (
-                        <CharmDisplay key={charmSet.id} charmSet={charmSet} />
+                        <CharmCard key={charmSet.id} charmSet={charmSet} />
                     ))}
                 </div>
             )}

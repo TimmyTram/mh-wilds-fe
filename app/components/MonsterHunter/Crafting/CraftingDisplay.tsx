@@ -21,7 +21,7 @@ const CraftingDisplay = ({ itemName, crafting }: CraftingDisplayProps) => {
                     {crafting.materials.map((material: Material, index: number) => (
                         <div
                             key={index}
-                            className="flex flex-row items-center justify-between sm:justify-start rounded p-2"
+                            className="flex flex-row items-center justify-between sm:justify-start rounded p-2 border bg-card"
                         >
                             <p className="text-sm sm:text-base truncate">{material.item.name}</p>
                             <p className="text-sm sm:text-base font-medium ml-2 sm:ml-4 md:ml-2 whitespace-nowrap">x{material.quantity}</p>

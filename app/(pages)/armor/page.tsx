@@ -1,6 +1,6 @@
 'use client';
 
-import ArmorDisplay from "@/app/components/MonsterHunter/Armor/ArmorDisplay";
+import ArmorCard from "@/app/components/MonsterHunter/Armor/ArmorCard";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { ArmorSet } from "@/app/types/ArmorData";
@@ -27,7 +27,7 @@ const Page = () => {
             {data && data.length > 0 && (
                 <div className="flex flex-wrap gap-4">
                     {sortedData.map((set: ArmorSet) => (
-                        <ArmorDisplay key={set.id} armorSet={set} />
+                        <ArmorCard key={set.id} armorSet={set} />
                     ))}
                 </div>
             )}

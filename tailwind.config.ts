@@ -9,12 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        card: "var(--color-card)",
+        cardHover: "var(--color-card-hover)",
         sidebar: "var(--color-sidebar)",
-        primary: "var(--color-primary)", // Custom primary color variable
-        secondary: "var(--color-secondary)", // Custom secondary color variable
-        complementary: "#3dc08d",
-        background: "var(--background)", // Custom background variable
-        foreground: "var(--foreground)", // Custom foreground variable
+        sidebarHover: "var(--color-sidebar-hover)",
+        button: "var(--color-button)",
+        buttonHover: "var(--color-button-hover)",
+        primary: "var(--color-primary)",
+        secondary: "var(--color-secondary)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
       },
     },
   },

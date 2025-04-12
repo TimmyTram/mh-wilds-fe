@@ -34,17 +34,17 @@ const LanguageDropDown = () => {
         <div ref={dropdownRef} className="relative inline-block text-left">
             <button
                 onClick={toggleDropdown}
-                className="bg-primary text-black dark:text-white p-2 rounded-md w-32 text-center cursor-pointer"
+                className="bg-button text-black dark:text-white p-2 rounded-md w-32 text-center cursor-pointer"
             >
                 {convertISO639_1ToLanguageCode(language)}
             </button>
 
             {isOpen && (
-                <ul className="absolute mt-2 w-32 bg-primary rounded-md shadow-lg z-10">
+                <ul className="absolute mt-2 w-32 bg-button rounded-md shadow-lg z-10">
                     {Object.values(ISO639_1).map((lang) => (
                         <li
                             key={lang}
-                            className="px-4 py-2 text-white hover:bg-primary-hover cursor-pointer"
+                            className="px-4 py-2 text-white hover:bg-buttonHover cursor-pointer"
                             onClick={() => selectLanguage(lang)}
                         >
                             {convertISO639_1ToLanguageCode(lang)}

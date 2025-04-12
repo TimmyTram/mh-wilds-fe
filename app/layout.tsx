@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Monster Hunter Wilds Spot",
-  description: "WIP",
+  title: "Monster Hunter Wilds Wiki",
+  description: "A centralized wiki for Monster Hunter Wilds.",
 };
 
 export default function RootLayout({

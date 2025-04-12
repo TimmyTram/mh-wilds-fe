@@ -4,7 +4,7 @@ import Link from "next/link";
 import { armorSetsMap } from "@/app/types/Associations/Associations";
 import { getImage } from "@/app/utils/utils";
 
-interface ArmorDisplayProps {
+interface ArmorCardProps {
     armorSet: ArmorSet;
 }
 
@@ -14,7 +14,7 @@ function getArmorSetImage(armorSet: ArmorSet) {
     return img;
 }
 
-const ArmorDisplay = ({ armorSet }: ArmorDisplayProps) => {
+const ArmorCard = ({ armorSet }: ArmorCardProps) => {
     return (
         <Link href={`/armor/${armorSet.id}`} className="w-[200px]">
             <div className="flex flex-col items-center justify-center p-4 border rounded-lg shadow-md w-[200px] h-[280px]">
@@ -35,4 +35,4 @@ const ArmorDisplay = ({ armorSet }: ArmorDisplayProps) => {
 };
 
 
-export default ArmorDisplay;
+export default ArmorCard;

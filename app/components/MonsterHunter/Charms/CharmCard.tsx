@@ -1,11 +1,11 @@
 import { CharmSet } from "@/app/types/CharmData";
 import Link from "next/link";
 
-interface CharmDisplayProps {
+interface CharmCardProps {
     charmSet: CharmSet;
 }
 
-const CharmDisplay = ({ charmSet }: CharmDisplayProps) => {
+const CharmCard = ({ charmSet }: CharmCardProps) => {
     return (
         <Link href={`/charms/${charmSet.id}`} className="w-[200px]">
             <div className="flex flex-col items-center justify-center p-4 border rounded-lg shadow-md w-[200px] h-[280px]">
@@ -21,4 +21,4 @@ const CharmDisplay = ({ charmSet }: CharmDisplayProps) => {
     );
 };
 
-export default CharmDisplay;
+export default CharmCard;

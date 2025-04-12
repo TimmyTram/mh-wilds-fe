@@ -45,8 +45,6 @@ const Page = () => {
                             </>
                         )}
                         <ArmorResistanceDisplay pieces={data.pieces} />
-                        <Divider />
-                        <LoreDisplay pieces={data.pieces} />
                     </>
                 )}
 
@@ -58,6 +56,10 @@ const Page = () => {
                             <Divider />
                         </div>
                     ))
+                )}
+                
+                {data && data.pieces && data.pieces.length > 0 && (
+                    <LoreDisplay pieces={data.pieces} />
                 )}
             </div>
         </div>
