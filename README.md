@@ -1,6 +1,6 @@
 # Monster Hunter Wilds Wiki
 
-This Wiki was built as a consolidated location where users can find information regarding Monster Hunter Wilds.
+This website was built as a consolidated location where users can find information regarding Monster Hunter Wilds.
 This includes 
 * Monster Data
 * Armor Data

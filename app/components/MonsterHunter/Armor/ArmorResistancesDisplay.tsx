@@ -2,15 +2,13 @@ import { ArmorPiece } from "@/app/types/ArmorData";
 import Divider from "../../UI/Divider/Divider";
 import Image from "next/image";
 import { useIsMobile } from "@/app/hooks/frontend/useIsMobile";
+import { getElementImage, getArmorKindImage } from "@/app/utils/utils";
 
 interface ArmorResistancesDisplayProps {
     pieces: ArmorPiece[];
 }
 
 const ELEMENTS = ["fire", "water", "thunder", "ice", "dragon"];
-
-const getArmorKindImage = (kind: string) => `/assets/ArmorIcons/${kind}_piece.png`;
-const getElementImage = (element: string) => `/assets/ElementIcons/${element}.png`;
 
 const ArmorResistanceTableHeader = ({ header, image }: { header: string; image: string }) => (
     <div className="flex flex-row items-center gap-1 sm:gap-2">
