@@ -2,16 +2,10 @@ import { Monster  } from "@/app/types/MonsterData";
 import Image from "next/image";
 import Link from "next/link";
 import { monsterMap } from "@/app/types/Associations/Associations";
-
+import { getImage } from "@/app/utils/utils";
 
 interface MonsterCardProps {
     monster: Monster;
-}
-
-function getMonsterImage(monster: Monster) {
-    const img = monsterMap.get(monster.gameId);
-    if (img === undefined) return "Unknown";
-    return img;
 }
 
 const MonsterCard = ({ monster }: MonsterCardProps) => {
@@ -21,7 +15,7 @@ const MonsterCard = ({ monster }: MonsterCardProps) => {
                 <div className="flex flex-col items-center justify-center mb-4">
                     <p className="text-center text-sm font-semibold">{monster.name}</p>
                     <Image 
-                        src={`/assets/MonsterImages/${getMonsterImage(monster)}.webp`}
+                        src={getImage(monster, monsterMap)}
                         width={128}
                         height={128}
                         alt=""
