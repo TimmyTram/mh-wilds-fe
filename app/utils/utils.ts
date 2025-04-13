@@ -1,7 +1,7 @@
 import { ISO639_1 } from "../types/ISO639-1";
 import { ArmorSet } from "../types/ArmorData";
-import { Monster, RewardConditionKind } from "../types/MonsterData";
-import { locationsMap, RewardConditionDisplayMap } from "../types/Associations/Associations";
+import { Monster, RewardConditionKind, Species } from "../types/MonsterData";
+import { locationsMap, MonsterSpeciesMap, RewardConditionDisplayMap } from "../types/Associations/Associations";
 
 /**
  * 
@@ -99,6 +99,23 @@ export const formatRewardCondition = (kind: RewardConditionKind): string => {
     
     // Otherwise: fallback to a generic formatter (Title Case and replace dashes)
     return kind
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
+
+/**
+ * 
+ * @param species The species of the monster
+ * @returns the formatted species name
+ */
+export const formatMonsterSpecies = (species: Species): string => {
+    if (species in MonsterSpeciesMap) {
+        return MonsterSpeciesMap[species];
+    }
+
+    // Otherwise: fallback to a generic formatter (Title Case and replace dashes)
+    return species
         .split('-')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');

@@ -1,4 +1,4 @@
-import { RewardConditionKind } from "../MonsterData";
+import { RewardConditionKind, Species } from "../MonsterData";
 
 /**
  * This is used to map gameIds of armor sets to their respective monster.
@@ -111,3 +111,25 @@ export const RewardConditionDisplayMap: Record<RewardConditionKind, string> = {
     [RewardConditionKind.SlingerGather]: "Slinger Gather",
 };
 
+export const MonsterSpeciesMap: Record<Species, string> = {
+    [Species.Amphibian]: "Amphibian",
+    [Species.FlyingWyvern]: "Flying Wyvern",
+    [Species.Fish]: "Fish",
+    [Species.Herbivore]: "Herbivore",
+    [Species.Lynian]: "Lynian",
+    [Species.BirdWyvern]: "Bird Wyvern",
+    [Species.BruteWyvern]: "Brute Wyvern",
+    [Species.ElderDragon]: "Elder Dragon",
+    [Species.FangedBeast]: "Fanged Beast",
+    [Species.FangedWyvern]: "Fanged Wyvern",
+    [Species.Leviathan]: "Leviathan",
+    [Species.PiscineWyvern]: "Piscine Wyvern",
+    [Species.Neopteron]: "Neopteron",
+    [Species.Carapaceon]: "Carapaceon",
+    [Species.Temnoceran]: "Temnoceran",
+    [Species.SnakeWyvern]: "Snake Wyvern",
+    [Species.Cephalopod]: "Cephalopod",
+    [Species.Construct]: "Construct",
+    [Species.Wingdrake]: "Wingdrake",
+    [Species.DemiElder]: "Demi Elder",
+};

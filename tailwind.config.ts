@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        bookBorder: "var(--color-book)",
         card: "var(--color-card)",
         cardHover: "var(--color-card-hover)",
         sidebar: "var(--color-sidebar)",

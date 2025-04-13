@@ -13,7 +13,7 @@ const MonsterLocation = ({ locations }: MonsterLocationProps) => {
                 {locations.map((location: Location, index: number) => (
                     <div
                         key={index}
-                        className="border-4 p-4 rounded-lg shadow-md bg-card bg-cover bg-center relative"
+                        className="border-black border-4 dark:border-white p-4 rounded-lg shadow-md bg-card bg-cover bg-center relative"
                         style={{ backgroundImage: `url(${getLocationThumbnailImage(location.gameId)})` }}
                     >
                         <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
