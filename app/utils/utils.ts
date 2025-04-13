@@ -1,7 +1,7 @@
 import { ISO639_1 } from "../types/ISO639-1";
 import { ArmorSet } from "../types/ArmorData";
 import { Monster, RewardConditionKind } from "../types/MonsterData";
-import { locationsMap } from "../types/Associations/Associations";
+import { locationsMap, RewardConditionDisplayMap } from "../types/Associations/Associations";
 
 /**
  * 
@@ -89,54 +89,17 @@ export const getLocationThumbnailImage = (gameId: number) => `/assets/Thumbnails
 /**
  * We are receiving some enums as strings that use - as a separator.
  * Therefore, we need to convert them to a more readable format.
- * For example: carve-severed-rotten -> Carve Severed (Rotten)
  * @param kind The kind of reward condition
  * @returns A formatted string representing the reward condition
  */
 export const formatRewardCondition = (kind: RewardConditionKind): string => {
-    const parts = kind.toString().split('-');
-    const labels: string[] = [];
-    let note: string | null = null;
-
-    // Map specific parts to display labels
-    parts.forEach(part => {
-        switch (part) {
-            case 'carve':
-                labels.push('Carve');
-                break;
-            case 'severed':
-                labels.push('Severed');
-                break;
-            case 'broken':
-                labels.push('Broken');
-                break;
-            case 'wound':
-                labels.push('Wound');
-                break;
-            case 'destroyed':
-                labels.push('Destroyed');
-                break;
-            case 'rotten':
-                note = 'Rotten';
-                break;
-            case 'crystallized':
-                note = 'Crystallized';
-                break;
-            case 'tempered':
-                labels.unshift('Tempered'); // Prefix
-                break;
-            case 'slinger':
-                labels.push('Slinger Gather');
-                break;
-            case 'endemic':
-                labels.push('Endemic Capture');
-                break;
-            case 'target':
-                labels.push('Target Reward');
-                break;
-        }
-    });
-
-    const result = note ? `${labels.join(' ')} (${note})` : labels.join(' ');
-    return result;
+    if (kind in RewardConditionDisplayMap) {
+        return RewardConditionDisplayMap[kind];
+    }
+    
+    // Otherwise: fallback to a generic formatter (Title Case and replace dashes)
+    return kind
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
 }

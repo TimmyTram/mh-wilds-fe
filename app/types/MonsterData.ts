@@ -54,17 +54,17 @@ export interface RewardCondition {
 }
 
 export enum RewardConditionKind {
-    carve,
-    broken_part,
-    carve_rotten_severed,
-    carve_severed,
-    wound_destroyed,
-    tempered_wound_destroyed,
-    endemic_capture,
-    carve_rotten,
-    carve_crystallized,
-    target_reward,
-    slinger_gather,
+    Carve = "carve",
+    BrokenPart = "broken-part",
+    CarveRottenSevered = "carve-rotten-severed",
+    CarveSevered = "carve-severed",
+    WoundDestroyed = "wound-destroyed",
+    TemperedWoundDestroyed = "tempered-wound-destroyed",
+    EndemicCapture = "endemic-capture",
+    CarveRotten = "carve-rotten",
+    CarveCrystallized = "carve-crystallized",
+    TargetReward = "target-reward",
+    SlingerGather = "slinger-gather",
 }
 
 // NOTE: This interface is not labeled in the API docs yet

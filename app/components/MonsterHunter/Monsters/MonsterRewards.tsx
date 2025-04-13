@@ -22,7 +22,7 @@ const MonsterRewards = ({ rewards }: MonsterRewardsProps) => {
                             {reward.conditions.map((condition: RewardCondition, conditionIndex: number) => (
                                 <div
                                     key={conditionIndex}
-                                    className="grid grid-cols-1 lg:grid-cols-2 p-2 bg-card rounded-lg items-center"
+                                    className="grid grid-cols-1 lg:grid-cols-2 p-2 bg-card rounded-lg items-center gap-4"
                                 >
                                     <p className="text-sm">
                                         {formatRewardCondition(condition.kind)}

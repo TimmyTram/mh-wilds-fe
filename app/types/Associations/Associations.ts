@@ -1,3 +1,5 @@
+import { RewardConditionKind } from "../MonsterData";
+
 /**
  * This is used to map gameIds of armor sets to their respective monster.
  * This is used to render the image of the monster in the armor set page. 
@@ -94,3 +96,18 @@ export const locationsMap = new Map<number, string>([
     [327401792, "ruins_of_wyveria"],
     [1182228864, "iceshard_cliffs"],
 ]);
+
+export const RewardConditionDisplayMap: Record<RewardConditionKind, string> = {
+    [RewardConditionKind.Carve]: "Carve",
+    [RewardConditionKind.BrokenPart]: "Broken Part",
+    [RewardConditionKind.CarveRottenSevered]: "Carve Severed Monster Part (Rotten)",
+    [RewardConditionKind.CarveSevered]: "Carve Severed Monster Part",
+    [RewardConditionKind.WoundDestroyed]: "Wound Destroyed",
+    [RewardConditionKind.TemperedWoundDestroyed]: "Tempered Wound Destroyed",
+    [RewardConditionKind.EndemicCapture]: "Endemic Life Capture",
+    [RewardConditionKind.CarveRotten]: "Carve Monster Carcass (Rotten)",
+    [RewardConditionKind.CarveCrystallized]: "Carve Crystallized Monster Carcass",
+    [RewardConditionKind.TargetReward]: "Target Reward",
+    [RewardConditionKind.SlingerGather]: "Slinger Gather",
+};
+
