@@ -4,10 +4,11 @@ import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { useParams } from "next/navigation";
 import { Monster } from "@/app/types/MonsterData";
-import Divider from "../../../components/UI/Divider/Divider";
 import MonsterHeader from "@/app/components/MonsterHunter/Monsters/MonsterHeader";
 import MonsterWeaknessChart from "@/app/components/MonsterHunter/Monsters/MonsterWeaknessChart";
 import MonsterRewards from "@/app/components/MonsterHunter/Monsters/MonsterRewards";
+import MonsterBreakableParts from "@/app/components/MonsterHunter/Monsters/MonsterBreakableParts";
+import MonsterSizes from "@/app/components/MonsterHunter/Monsters/MonsterSizes";
 
 
 const Page = () => {
@@ -20,10 +21,8 @@ const Page = () => {
     }
 
     if (!data) {
-        return <p>Loading data...</p>;
+        return <p>No data found.</p>;
     }
-
-    console.log(data);
 
     return (
         <div className="flex flex-col items-center justify-center">
@@ -38,12 +37,13 @@ const Page = () => {
                     <MonsterWeaknessChart monster={data} />
                 </div>
 
-                <div className="col-span-4 border-2 border-red-500">
+                <div className="col-span-8 md:col-span-4 border-4 rounded-lg shadow-md p-4">
                     <MonsterRewards rewards={data.rewards} />
                 </div>
 
-                <div className="col-span-4 border-2 border-red-500">
-                    <p>Test 2</p>
+                <div className="col-span-8 md:col-span-4 border-4 rounded-lg shadow-md p-4">
+                    <MonsterBreakableParts monsterParts={data.breakableParts} />
+                    <MonsterSizes size={data.size} />
                 </div>
 
             </div>

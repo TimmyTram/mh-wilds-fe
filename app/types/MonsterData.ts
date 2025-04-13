@@ -66,9 +66,12 @@ export enum RewardConditionKind {
     slinger_gather,
 }
 
-// export interface MonsterPart {
-//     // TODO: Add breakable parts when api docs are updated
-// }
+// NOTE: This interface is not labeled in the API docs yet
+// https://docs.wilds.mhdb.io/#monsters-properties
+export interface MonsterPart {
+    part: string;
+    name: string;
+}
 
 export interface Monster {
     id: number;
@@ -85,5 +88,5 @@ export interface Monster {
     resistances: MonsterResistances[];
     weaknesses: MonsterWeakness[];
     rewards: MonsterReward[];
-    // breakableParts: Not labeld in api docs yet 
+    breakableParts: MonsterPart[];
 }
