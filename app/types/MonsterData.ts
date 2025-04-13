@@ -2,6 +2,7 @@ import { Item } from "./MaterialData";
 import { Rank } from "./Rank";
 import { MonsterWeakness } from "./MonsterWeakness";
 import { MonsterResistances } from "./MonsterResistances";
+import { Location } from "./Location";
 
 enum MonsterKind {
     small = 'small',

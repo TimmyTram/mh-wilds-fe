@@ -9,6 +9,8 @@ import MonsterWeaknessChart from "@/app/components/MonsterHunter/Monsters/Monste
 import MonsterRewards from "@/app/components/MonsterHunter/Monsters/MonsterRewards";
 import MonsterBreakableParts from "@/app/components/MonsterHunter/Monsters/MonsterBreakableParts";
 import MonsterSizes from "@/app/components/MonsterHunter/Monsters/MonsterSizes";
+import Divider from "@/app/components/UI/Divider/Divider";
+import MonsterLocation from "@/app/components/MonsterHunter/Monsters/MonsterLocation";
 
 
 const Page = () => {
@@ -43,7 +45,10 @@ const Page = () => {
 
                 <div className="col-span-8 md:col-span-4 border-4 rounded-lg shadow-md p-4">
                     <MonsterBreakableParts monsterParts={data.breakableParts} />
+                    <Divider />
                     <MonsterSizes size={data.size} />
+                    <Divider />
+                    <MonsterLocation locations={data.locations} />
                 </div>
 
             </div>

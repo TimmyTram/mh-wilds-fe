@@ -70,6 +70,32 @@ export const getArmorKindImage = (kind: string) => `/assets/ArmorIcons/${kind}_p
  */
 export const getStatusImage = (status: string) => `/assets/StatusIcons/${status}.png`;
 
+/**
+ * 
+ * @param size The size of the crown (large, silver, small)
+ * @returns the path to the crown image
+ */
+export const getCrownImage = (size: 'large' | 'silver' | 'small') => `/assets/CrownIcons/${size}_crown.png`;
+
+/**
+ * Take a locationName, convert it to lowercase, replace spaces with underscores, and append .jpg
+ * @param locationName The name of the location to get the image for
+ * @returns the path to the location image
+ */
+export const getLocationThumbnailImage = (locationName: string) => {
+    const locationNameLower = locationName.toLowerCase().replace(/\s+/g, '_');
+    console.log(locationNameLower);
+    return `/assets/Thumbnails/Locations/${locationNameLower}.jpg`;
+}
+
+
+/**
+ * We are receiving some enums as strings that use - as a separator.
+ * Therefore, we need to convert them to a more readable format.
+ * For example: carve-severed-rotten -> Carve Severed (Rotten)
+ * @param kind The kind of reward condition
+ * @returns A formatted string representing the reward condition
+ */
 export const formatRewardCondition = (kind: RewardConditionKind): string => {
     const parts = kind.toString().split('-');
     const labels: string[] = [];
@@ -82,10 +108,10 @@ export const formatRewardCondition = (kind: RewardConditionKind): string => {
                 labels.push('Carve');
                 break;
             case 'severed':
-                labels.push('Severed Part');
+                labels.push('Severed');
                 break;
             case 'broken':
-                labels.push('Broken Part');
+                labels.push('Broken');
                 break;
             case 'wound':
                 labels.push('Wound');
