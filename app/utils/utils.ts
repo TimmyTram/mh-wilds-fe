@@ -1,6 +1,7 @@
 import { ISO639_1 } from "../types/ISO639-1";
 import { ArmorSet } from "../types/ArmorData";
 import { Monster, RewardConditionKind } from "../types/MonsterData";
+import { locationsMap } from "../types/Associations/Associations";
 
 /**
  * 
@@ -78,15 +79,11 @@ export const getStatusImage = (status: string) => `/assets/StatusIcons/${status}
 export const getCrownImage = (size: 'large' | 'silver' | 'small') => `/assets/CrownIcons/${size}_crown.png`;
 
 /**
- * Take a locationName, convert it to lowercase, replace spaces with underscores, and append .jpg
- * @param locationName The name of the location to get the image for
- * @returns the path to the location image
+ * @param gameId The game ID of the location
+ * @return The path to the location thumbnail image
  */
-export const getLocationThumbnailImage = (locationName: string) => {
-    const locationNameLower = locationName.toLowerCase().replace(/\s+/g, '_');
-    console.log(locationNameLower);
-    return `/assets/Thumbnails/Locations/${locationNameLower}.jpg`;
-}
+export const getLocationThumbnailImage = (gameId: number) => `/assets/Thumbnails/Locations/${locationsMap.get(gameId)}.jpg`;
+
 
 
 /**

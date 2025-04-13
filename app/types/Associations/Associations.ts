@@ -1,4 +1,7 @@
-// really stupid way to map armor sets to their names, but it works for now
+/**
+ * This is used to map gameIds of armor sets to their respective monster.
+ * This is used to render the image of the monster in the armor set page. 
+ */
 const armorMappings: [string, number[]][] = [
     ["Congalala", [-2117203456, -1456507776, 672494016]],
     ["Quematrice", [-2109565568, -647496960, 307878816]],
@@ -43,6 +46,13 @@ export const armorSetsMap = new Map<number, string>(
     armorMappings.flatMap(([name, ids]) => ids.map(id => [id, name]))
 );
 
+
+/**
+ * Maps below here, are used to map game Ids to their respective image filenames.
+ * We do this because if we used the names of the monsters to access the images,
+ * it would fail in other languages.
+ * So we use the game Ids to access the images.
+ */
 // Game ID to Monster Name mapping
 export const monsterMap = new Map<number, string>([
     [-2003468672, "Zoh_Shia"],
@@ -75,4 +85,12 @@ export const monsterMap = new Map<number, string>([
     [1663995904, "GEbony"],
     [1965232896, "Rathalos"],
     [2129596800, "Blangonga"],
+]);
+
+export const locationsMap = new Map<number, string>([
+    [-1251081216, "oilwell_basin"],
+    [-1226157568, "windward_plains"],
+    [-859829056, "scarlet_forest"],
+    [327401792, "ruins_of_wyveria"],
+    [1182228864, "iceshard_cliffs"],
 ]);

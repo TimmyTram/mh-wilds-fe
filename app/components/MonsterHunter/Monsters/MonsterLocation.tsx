@@ -14,7 +14,7 @@ const MonsterLocation = ({ locations }: MonsterLocationProps) => {
                     <div
                         key={index}
                         className="border-4 p-4 rounded-lg shadow-md bg-card bg-cover bg-center relative"
-                        style={{ backgroundImage: `url(${getLocationThumbnailImage(location.name)})` }}
+                        style={{ backgroundImage: `url(${getLocationThumbnailImage(location.gameId)})` }}
                     >
                         <div className="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
                         <h3 className="text-xl font-semibold text-center p-2 rounded relative text-white z-10 flex items-center justify-center h-full">
