@@ -3,32 +3,16 @@
 import { useState, useEffect } from "react";
 import Sidebar from "../UI/Sidebar/Sidebar";
 import Navbar from "../UI/Navbar/Navbar";
+import { useIsMobile } from "@/app/hooks/frontend/useIsMobile"; 
 
 interface ContentProps {
     children: React.ReactNode;
 }
 
 const Content = ({ children }: ContentProps) => {
+    const isMobile = useIsMobile(1536);
     const [showSidebar, setShowSidebar] = useState(true);
-    const [isMobile, setIsMobile] = useState(false);
-    
-    // Check if the viewport is mobile-sized
-    useEffect(() => {
-        const checkIfMobile = () => {
-            setIsMobile(window.innerWidth < 768); // 768px is standard md breakpoint
-        };
-        
-        // Set initial value
-        checkIfMobile();
-        
-        // Add event listener for window resize
-        window.addEventListener('resize', checkIfMobile);
-        
-        // Clean up
-        return () => window.removeEventListener('resize', checkIfMobile);
-    }, []);
-    
-    // On mobile, hide sidebar by default
+
     useEffect(() => {
         if (isMobile) {
             setShowSidebar(false);

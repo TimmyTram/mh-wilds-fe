@@ -52,7 +52,7 @@ export interface RewardCondition {
     part: string; // Enum-Like according to api docs | https://docs.wilds.mhdb.io/#enum-like
 }
 
-enum RewardConditionKind {
+export enum RewardConditionKind {
     carve,
     broken_part,
     carve_rotten_severed,

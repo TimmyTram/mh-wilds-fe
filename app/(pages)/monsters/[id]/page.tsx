@@ -7,6 +7,7 @@ import { Monster } from "@/app/types/MonsterData";
 import Divider from "../../../components/UI/Divider/Divider";
 import MonsterHeader from "@/app/components/MonsterHunter/Monsters/MonsterHeader";
 import MonsterWeaknessChart from "@/app/components/MonsterHunter/Monsters/MonsterWeaknessChart";
+import MonsterRewards from "@/app/components/MonsterHunter/Monsters/MonsterRewards";
 
 
 const Page = () => {
@@ -36,9 +37,16 @@ const Page = () => {
                 <div className="col-span-8">
                     <MonsterWeaknessChart monster={data} />
                 </div>
+
+                <div className="col-span-4 border-2 border-red-500">
+                    <MonsterRewards rewards={data.rewards} />
+                </div>
+
+                <div className="col-span-4 border-2 border-red-500">
+                    <p>Test 2</p>
+                </div>
+
             </div>
-
-
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import { ISO639_1 } from "../types/ISO639-1";
 import { ArmorSet } from "../types/ArmorData";
-import { Monster } from "../types/MonsterData";
+import { Monster, RewardConditionKind } from "../types/MonsterData";
 
 /**
  * 
@@ -69,3 +69,51 @@ export const getArmorKindImage = (kind: string) => `/assets/ArmorIcons/${kind}_p
  * @returns the path to the status image
  */
 export const getStatusImage = (status: string) => `/assets/StatusIcons/${status}.png`;
+
+export const formatRewardCondition = (kind: RewardConditionKind): string => {
+    const parts = kind.toString().split('-');
+    const labels: string[] = [];
+    let note: string | null = null;
+
+    // Map specific parts to display labels
+    parts.forEach(part => {
+        switch (part) {
+            case 'carve':
+                labels.push('Carve');
+                break;
+            case 'severed':
+                labels.push('Severed Part');
+                break;
+            case 'broken':
+                labels.push('Broken Part');
+                break;
+            case 'wound':
+                labels.push('Wound');
+                break;
+            case 'destroyed':
+                labels.push('Destroyed');
+                break;
+            case 'rotten':
+                note = 'Rotten';
+                break;
+            case 'crystallized':
+                note = 'Crystallized';
+                break;
+            case 'tempered':
+                labels.unshift('Tempered'); // Prefix
+                break;
+            case 'slinger':
+                labels.push('Slinger Gather');
+                break;
+            case 'endemic':
+                labels.push('Endemic Capture');
+                break;
+            case 'target':
+                labels.push('Target Reward');
+                break;
+        }
+    });
+
+    const result = note ? `${labels.join(' ')} (${note})` : labels.join(' ');
+    return result;
+}
