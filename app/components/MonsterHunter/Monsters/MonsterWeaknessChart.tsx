@@ -30,7 +30,6 @@ function getCorrectWeaknessKind(weakness: MonsterWeakness): string {
 }
 
 function getImage(weaknessKind: string, type: WeaknessType): string {
-    console.log(`[INFO]: getImage() | Weakness Kind: ${weaknessKind}, Type: ${type}`);
     switch (type) {
         case "element":
             return getElementImage(weaknessKind);

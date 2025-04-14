@@ -61,30 +61,21 @@ export const getArmorKindImage = (kind: string) => `/assets/ArmorIcons/${kind}_p
  * @param element The element to get the image for
  * @returns the path to the element image
  */
-export const getElementImage = (element: string) => {
-    console.log(`[INFO]: getElementImage() | Element: ${element} | Path: /assets/ElementIcons/${element}.png`);
-    return `/assets/ElementIcons/${element}.png`;
-}
+export const getElementImage = (element: string) => `/assets/ElementIcons/${element}.png`;
 
 /**
  * 
  * @param status The status to get the image for
  * @returns the path to the status image
  */
-export const getStatusImage = (status: string) => {
-    console.log(`[INFO]: getStatusImage() | Status: ${status} | Path: /assets/StatusIcons/${status}.png`);
-    return `/assets/StatusIcons/${status}.png`;
-}
+export const getStatusImage = (status: string) => `/assets/StatusIcons/${status}.png`;
 
 /**
  * 
  * @param effect The effect to get the image for
  * @returns the path to the effect image
  */
-export const getEffectImage = (effect: string) => {
-    console.log(`[INFO]: getEffectImage() | Effect: ${effect} | Path: /assets/EffectIcons/${effect}.png`);
-    return `/assets/EffectIcons/${effect}.png`;
-}
+export const getEffectImage = (effect: string) => `/assets/EffectIcons/${effect}.png`;
 
 /**
  * 
