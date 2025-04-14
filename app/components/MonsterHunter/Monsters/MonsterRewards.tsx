@@ -5,6 +5,19 @@ interface MonsterRewardsProps {
     rewards: MonsterReward[];
 };
 
+function formatRank(rank: string): string {
+    switch (rank) {
+        case "low":
+            return "Low Rank";
+        case "high":
+            return "High Rank";
+        case "master":
+            return "Master Rank";
+        default:
+            return rank.charAt(0).toUpperCase() + rank.slice(1);
+    }
+}
+
 const MonsterRewards = ({ rewards }: MonsterRewardsProps) => {
     return (
         <div className="flex flex-col items-center justify-center p-6">
@@ -22,12 +35,13 @@ const MonsterRewards = ({ rewards }: MonsterRewardsProps) => {
                             {reward.conditions.map((condition: RewardCondition, conditionIndex: number) => (
                                 <div
                                     key={conditionIndex}
-                                    className="grid grid-cols-1 lg:grid-cols-2 p-2 bg-card rounded-lg items-center gap-4"
+                                    className="flex flex-col bg-card rounded-lg items-center justify-center gap-4 p-2"
                                 >
+                                    <p className="font-bold">{formatRank(condition.rank.toString())}</p>
                                     <p className="text-sm">
                                         {formatRewardCondition(condition.kind)}
                                     </p>
-                                    <p className="text-sm">
+                                    <p className="text-sm font-bold">
                                         <span className="font-medium">Chance:</span> {condition.chance}%
                                     </p>
                                 </div>
