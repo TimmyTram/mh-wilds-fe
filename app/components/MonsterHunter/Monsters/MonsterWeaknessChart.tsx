@@ -19,17 +19,18 @@ type WeaknessType = "element" | "status" | "effect";
 function getCorrectWeaknessKind(weakness: MonsterWeakness): string {
     switch (weakness.kind) {
         case "element":
-            return weakness.element.toUpperCase();
+            return weakness.element;
         case "status":
-            return weakness.status.toUpperCase();
+            return weakness.status;
         case "effect":
-            return weakness.effect.toUpperCase();
+            return weakness.effect;
         default:
             return "Unknown";
     }
 }
 
 function getImage(weaknessKind: string, type: WeaknessType): string {
+    console.log(`[INFO]: getImage() | Weakness Kind: ${weaknessKind}, Type: ${type}`);
     switch (type) {
         case "element":
             return getElementImage(weaknessKind);
@@ -64,7 +65,7 @@ const WeaknessDisplay = ({ weaknesses, type, className }: { weaknesses: MonsterW
             {weaknesses.map((weakness: MonsterWeakness, index: number) => (
                 <div key={index} className={className}>
                     <div className="flex flex-row items-center gap-1">
-                        <p className="font-bold">{getCorrectWeaknessKind(weakness)}</p>
+                        <p className="font-bold">{getCorrectWeaknessKind(weakness).toUpperCase()}</p>
                         <Image
                             src={getImage(getCorrectWeaknessKind(weakness), type)}
                             alt={getCorrectWeaknessKind(weakness)}
