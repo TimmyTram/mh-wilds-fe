@@ -10,6 +10,7 @@ const Sidebar = () => {
                 <SidebarItem resourceName="Armor" link="/armor" />
                 <SidebarItem resourceName="Weapons" link="/weapons" />
                 <SidebarItem resourceName="Charms" link="/charms" />
+                <SidebarItem resourceName="Skills" link="/skills" />
                 <SidebarItem resourceName="Items" link="/items" />
             </ul>
         </div>

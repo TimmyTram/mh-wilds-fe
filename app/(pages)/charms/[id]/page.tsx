@@ -7,6 +7,7 @@ import Divider from "../../../components/UI/Divider/Divider";
 import { CharmRank, CharmSet } from "@/app/types/CharmData";
 import CraftingDisplay from "@/app/components/MonsterHunter/Crafting/CraftingDisplay";
 import { useIsMobile } from "@/app/hooks/frontend/useIsMobile";
+import { SkillRank } from "@/app/types/SkillData";
 
 const CharmHeader = () => (
     <div className="hidden md:grid grid-cols-4 gap-4 mb-2 font-semibold text-base md:text-lg">
@@ -23,9 +24,9 @@ const CharmRow = ({ rank }: { rank: CharmRank }) => (
         <p className="break-words">{rank.description}</p>
         <p>{rank.rarity}</p>
         <div className="space-y-1">
-            {rank.skills.map((skill) => (
-                <p key={skill.skill.id}>
-                    {skill.skill.name} (Level: {skill.level})
+            {rank.skills.map((skill: SkillRank) => (
+                <p key={skill.id}>
+                    {skill.skill?.name} (Level: {skill.level})
                 </p>
             ))}
         </div>
@@ -38,9 +39,9 @@ const CharmMobileCard = ({ rank }: { rank: CharmRank }) => (
         <p className="text-sm">{rank.description}</p>
         <p className="text-sm">Rarity: {rank.rarity}</p>
         <div className="mt-2 space-y-1">
-            {rank.skills.map((skill) => (
-                <p key={skill.skill.id} className="text-sm">
-                    {skill.skill.name} (Level: {skill.level})
+            {rank.skills.map((skill: SkillRank) => (
+                <p key={skill.id} className="text-sm">
+                    {skill.skill?.name} (Level: {skill.level})
                 </p>
             ))}
         </div>
@@ -66,6 +67,8 @@ const Page = () => {
 
     if (!isLanguageLoaded) return <p className="p-4">Loading language...</p>;
 
+    console.log(data);
+
     return (
         <div className="w-full px-4 md:px-8 py-4 overflow-x-auto">
             {loading && <p className="mb-4">Loading...</p>}
@@ -77,7 +80,7 @@ const Page = () => {
 
                 {data?.ranks?.length ? (
                     <>
-                        {data.ranks.map((rank, index) => (
+                        {data.ranks.map((rank: CharmRank, index: number) => (
                             <div key={index}>
                                 {isMobile ? <CharmMobileCard rank={rank} /> : <CharmRow rank={rank} />}
                             </div>

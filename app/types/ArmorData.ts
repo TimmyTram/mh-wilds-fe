@@ -1,4 +1,4 @@
-import { Skill } from "./SkillData";
+import { SkillRank } from "./SkillData";
 import { BaseCrafting } from "./Crafting";
 
 
@@ -60,7 +60,7 @@ export interface ArmorPiece {
     rarity: number;
     resistances: Resistances;
     defense: Defense;
-    skills: Skill[];
+    skills: SkillRank[];
     slots: number[];
     armorSet: {
         id: number;

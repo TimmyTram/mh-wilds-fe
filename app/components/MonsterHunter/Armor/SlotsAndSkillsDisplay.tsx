@@ -1,6 +1,7 @@
 import { ArmorPiece } from "@/app/types/ArmorData";
 import Divider from "../../UI/Divider/Divider";
 import Image from "next/image";
+import { SkillRank } from "@/app/types/SkillData";
 
 interface SlotsAndSkillsDisplayProps {
     pieces: ArmorPiece[];
@@ -46,19 +47,21 @@ const SlotIcons = ({ slots, size = 24 }: { slots: number[]; size?: number }) => 
     </div>
 );
 
-const SkillsList = ({ skills }: { skills: ArmorPiece["skills"] }) => (
-    skills.length > 0 ? (
+const SkillsList = ({ skills }: { skills: SkillRank[] }) => {
+    console.log(skills);
+
+    return skills.length > 0 ? (
         <ul className="list-disc list-inside text-xs sm:text-sm">
-            {skills.map((skill) => (
-                <li key={skill.skill.id} className="truncate">
-                    {skill.skill.name} (Level: {skill.level})
+            {skills.map((skillRank: SkillRank) => (
+                <li key={skillRank.id} className="truncate">
+                    {skillRank.skill.name} (Level: {skillRank.level})
                 </li>
             ))}
         </ul>
     ) : (
         <span className="text-gray-500 text-xs sm:text-sm">None</span>
-    )
-);
+    );
+};
 
 const ArmorHeader = () => (
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-2 font-semibold text-sm sm:text-base">
@@ -100,6 +103,7 @@ const ArmorMobileDetails = ({ piece }: { piece: ArmorPiece }) => (
 );
 
 const SlotsAndSkillsDisplay = ({ pieces }: SlotsAndSkillsDisplayProps) => {
+    console.log(pieces);
     return (
         <div className="w-full overflow-x-auto">
             <div className="min-w-full">

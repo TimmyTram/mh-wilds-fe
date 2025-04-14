@@ -1,22 +1,26 @@
 export interface SkillRank {
     id: number;
-    level?: number;
-    description?: string;
-    skill?: {
+    name: string;
+    description: string;
+    level: number;
+
+    skill: {
         id: number;
-    };
+        name: string;
+    }
+}
+
+export enum SkillKind {
+    armor,
+    weapon,
+    set,
+    group
 }
 
 export interface Skill {
-    skill: {
-        id: number;
-        gameId?: number;
-        name: string;
-        ranks: SkillRank[];
-        description: string;
-        kind: string;
-    };
-    level: number;
-    description: string;
     id: number;
+    name: string;
+    description: string;
+    ranks: SkillRank[];
+    kind: SkillKind;
 }
