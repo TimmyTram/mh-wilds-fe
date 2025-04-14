@@ -52,17 +52,16 @@ export const getImage = (data: Monster | ArmorSet, map: Map<number, string>): st
 }
 
 /**
- * @param element The element to get the image for
- * @returns the path to the element image
- */
-export const getElementImage = (element: string) => `/assets/ElementIcons/${element}.png`;
-
-
-/**
  * @param kind The kind of armor piece (head, chest, arms, waist, legs)
  * @returns the path to the armor kind image
  */
 export const getArmorKindImage = (kind: string) => `/assets/ArmorIcons/${kind}_piece.png`;
+
+/**
+ * @param element The element to get the image for
+ * @returns the path to the element image
+ */
+export const getElementImage = (element: string) => `/assets/ElementIcons/${element}.png`;
 
 /**
  * 
@@ -70,6 +69,13 @@ export const getArmorKindImage = (kind: string) => `/assets/ArmorIcons/${kind}_p
  * @returns the path to the status image
  */
 export const getStatusImage = (status: string) => `/assets/StatusIcons/${status}.png`;
+
+/**
+ * 
+ * @param effect The effect to get the image for
+ * @returns the path to the effect image
+ */
+export const getEffectImage = (effect: string) => `/assets/EffectIcons/${effect}.png`;
 
 /**
  * 

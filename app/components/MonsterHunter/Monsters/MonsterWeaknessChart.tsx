@@ -2,14 +2,14 @@ import { Monster } from "@/app/types/MonsterData";
 import { MonsterWeakness } from "@/app/types/MonsterWeakness";
 import { useIsMobile } from "@/app/hooks/frontend/useIsMobile"
 import Star from "../../Stars/Stars";
-import { getElementImage, getStatusImage } from "@/app/utils/utils";
+import { getElementImage, getStatusImage, getEffectImage } from "@/app/utils/utils";
 import Image from "next/image";
 
 interface MonsterWeaknessChartProps {
     monster: Monster;
 }
 
-const ALL_ELEMENTS = ["fire", "ice", "water", "thunder", "dragon"];
+type WeaknessType = "element" | "status" | "effect";
 
 /**
  * Determines the correct weakness kind.
@@ -29,54 +29,53 @@ function getCorrectWeaknessKind(weakness: MonsterWeakness): string {
     }
 }
 
-const MonsterWeaknessList = ({ weaknesses, className }: { weaknesses: MonsterWeakness[], className?: string }) => {
+function getImage(weaknessKind: string, type: WeaknessType): string {
+    switch (type) {
+        case "element":
+            return getElementImage(weaknessKind);
+        case "status":
+            return getStatusImage(weaknessKind);
+        case "effect":
+            return getEffectImage(weaknessKind);
+    }
+}
+
+const LegendDisplay = () => {
+    return (
+        <div className="flex flex-col items-center p-4">
+            <h2 className="text-lg font-bold">Legend</h2>
+            <div className="flex flex-col items-start gap-2">
+                <div className="flex items-center gap-1">
+                    <Star numOfStars={1} color="text-yellow-500" />
+                    <p>Effective (More stars = Higher effectiveness)</p>
+                </div>
+                <div className="flex items-center gap-1">
+                <Star numOfStars={1} color="text-gray-500" />
+                    <p>Not Listed (Not Effective)</p>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+const WeaknessDisplay = ({ weaknesses, type, className }: { weaknesses: MonsterWeakness[], type: WeaknessType, className?: string }) => {
     return (
         <>
-            {/* Display all elements, even if missing */}
-            {ALL_ELEMENTS.map((element) => {
-                const match = weaknesses.find(
-                    (weakness) => weakness.kind === "element" && weakness.element?.toLowerCase() === element
-                );
-
-                return (
-                    <div key={element} className={className}>
-                        <div className="flex flex-row items-center gap-1">
-                            <p className="text-lg font-bold">{element.toUpperCase()}</p>
-                            <Image
-                                src={getElementImage(element)}
-                                alt={element}
-                                width={24}
-                                height={24}
-                                className="rounded-full"
-                            />
-                        </div>
-                        <Star numOfStars={match ? match.level : 0} />
+            {weaknesses.map((weakness: MonsterWeakness, index: number) => (
+                <div key={index} className={className}>
+                    <div className="flex flex-row items-center gap-1">
+                        <p className="font-bold">{getCorrectWeaknessKind(weakness)}</p>
+                        <Image
+                            src={getImage(getCorrectWeaknessKind(weakness), type)}
+                            alt={getCorrectWeaknessKind(weakness)}
+                            width={24}
+                            height={24}
+                            className="rounded-full"
+                        />
                     </div>
-                );
-            })}
-
-            {/* Display remaining status and effect weaknesses */}
-            {weaknesses
-                .filter(w => w.kind !== "element")
-                .map((weakness, index) => (
-                    <div key={`non-element-${index}`} className={className}>
-                        <div className="flex flex-row items-center gap-1">
-                            <p className="text-lg font-bold">{getCorrectWeaknessKind(weakness)}</p>
-
-                            {weakness.kind === "status" && (
-                                <Image
-                                    src={getStatusImage(weakness.status)}
-                                    alt={weakness.status}
-                                    width={24}
-                                    height={24}
-                                    className="rounded-full"
-                                />
-                            )}
-                        </div>
-                        <Star numOfStars={weakness.level} />
-                    </div>
-                ))
-            }
+                    <Star numOfStars={weakness.level} color="text-yellow-500" />
+                </div>
+            ))}
         </>
     );
 }
@@ -98,15 +97,21 @@ const MonsterWeaknessChart = ({ monster }: MonsterWeaknessChartProps) => {
         <div>
             {isMobile ? (
                 <div className="border border-4 p-4 rounded-lg shadow-md bg-card">
+                    <LegendDisplay />
                     <div className="grid grid-cols-2 gap-4">
                         <h2 className="text-lg font-bold">WEAKNESSES</h2>
-                        <h2 className="text-lg font-bold">WEAKNESS LEVELS</h2>
+                        <h2 className="text-lg font-bold">RELATIVE EFFECTIVENESS</h2>
                     </div>
-                    <MonsterWeaknessList weaknesses={weaknesses} className="grid grid-cols-2 gap-4" />
+                    <WeaknessDisplay weaknesses={weaknesses.filter(weakness => weakness.kind === "element")} type="element" className="grid grid-cols-2 gap-4" />
+                    <WeaknessDisplay weaknesses={weaknesses.filter(weakness => weakness.kind === "status")} type="status" className="grid grid-cols-2 gap-4" />
+                    <WeaknessDisplay weaknesses={weaknesses.filter(weakness => weakness.kind === "effect")} type="effect" className="grid grid-cols-2 gap-4" />
                 </div>
             ) : (
-                <div className="flex flex-row border border-4 p-4 rounded-lg shadow-md bg-card">
-                    <MonsterWeaknessList weaknesses={weaknesses} className="flex flex-col items-center justify-center p-4" />
+                <div className="flex flex-row border border-4 p-4 rounded-lg shadow-md bg-card items-center justify-center">
+                    <LegendDisplay />
+                    <WeaknessDisplay weaknesses={weaknesses.filter(weakness => weakness.kind === "element")} type="element" className="flex flex-col items-center p-4" />
+                    <WeaknessDisplay weaknesses={weaknesses.filter(weakness => weakness.kind === "status")} type="status" className="flex flex-col items-center p-4" />
+                    <WeaknessDisplay weaknesses={weaknesses.filter(weakness => weakness.kind === "effect")} type="effect" className="flex flex-col items-center p-4" />
                 </div>
             )}
         </div>

@@ -3,9 +3,10 @@ import { FaStar } from "react-icons/fa";
 interface StarProps {
     numOfStars: number;
     color?: string
+    maxNumOfStars?: number;
 }
 
-const Star = ({ numOfStars, color }: StarProps) => {
+const Star = ({ numOfStars, color, maxNumOfStars }: StarProps) => {
     let stars = Array.from({ length: numOfStars }, (_, index) => (
         <FaStar
             key={index}
@@ -13,11 +14,11 @@ const Star = ({ numOfStars, color }: StarProps) => {
         />
     ));
 
-    // If the number of stars is less than 3, fill the rest with empty stars 
-    if (numOfStars < 3) {
+    // if we define a max number of stars, we add the rest of the stars as gray 
+    if (maxNumOfStars !== undefined && numOfStars < maxNumOfStars) {
         stars = [
             ...stars,
-            ...Array.from({ length: 3 - numOfStars }, (_, index) => (
+            ...Array.from({ length: maxNumOfStars - numOfStars }, (_, index) => (
                 <FaStar
                     key={index + numOfStars}
                     className="text-2xl text-gray-300"
