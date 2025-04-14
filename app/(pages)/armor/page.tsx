@@ -8,16 +8,14 @@ import { sortByName } from "@/app/utils/utils";
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
-    const { data, loading, error } = useFetchAllMhData<ArmorSet>("armor/sets", isLanguageLoaded ? language : undefined);
+    const { data, loading, error } = useFetchAllMhData<ArmorSet>(`armor/sets?p={"id": true, "name": true, "gameId": true, "pieces": true}`, isLanguageLoaded ? language : undefined);
 
     if (!isLanguageLoaded) {
         return <p>Loading language...</p>;
     }
 
     const sortedData = data ? sortByName(data, language, item => item.name) : [];
-
-    console.log(sortedData);
-    
+  
     return (
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Armor Sets</h1>
@@ -27,7 +25,7 @@ const Page = () => {
             {data && data.length > 0 && (
                 <div className="flex flex-wrap gap-4">
                     {sortedData.map((set: ArmorSet) => (
-                        <ArmorCard key={set.id} armorSet={set} />
+                        <ArmorCard key={set.id} id={set.id} gameId={set.gameId} name={set.name} pieces={set.pieces} />
                     ))}
                 </div>
             )}

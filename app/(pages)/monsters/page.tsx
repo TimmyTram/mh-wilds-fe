@@ -8,12 +8,12 @@ import { sortByName } from "@/app/utils/utils";
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
-    const { data, loading, error } = useFetchMhData<Monster>("monsters", isLanguageLoaded ? language : undefined);
+    const { data, loading, error } = useFetchMhData<Monster>(`monsters?p={"id": true, "name": true, "gameId": true}`, isLanguageLoaded ? language : undefined);
 
     if (!isLanguageLoaded) {
         return <p>Loading language...</p>;
     }
-
+    
     const sortedData = data ? sortByName(data, language, item => item.name) : [];
 
     return (
@@ -25,11 +25,10 @@ const Page = () => {
             {data && data.length > 0 && (
                 <div className="flex flex-wrap gap-4">
                     {sortedData.map((monster: Monster) => (
-                        <MonsterCard key={monster.id} monster={monster} />
+                        <MonsterCard  key={monster.id} id={monster.id} gameId={monster.gameId} name={monster.name} />
                     ))}
                 </div>
             )}
-
         </div>
     );
 }

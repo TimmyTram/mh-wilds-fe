@@ -21,7 +21,7 @@ const MonsterHeader = ({ monster, imgWidth, imgHeight, imgClassName }: MonsterHe
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-8">
             <div className="flex flex-col items-center justify-center col-span-1 md:col-span-2 lg:col-span-2">
                 <Image
-                    src={getImage(monster, monsterMap)}
+                    src={getImage(monster.gameId, monsterMap)}
                     alt={monster.name}
                     width={imgWidth}
                     height={imgHeight}

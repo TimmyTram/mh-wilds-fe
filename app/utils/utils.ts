@@ -40,13 +40,13 @@ export const sortByName = <T>(
 
 /**
  * 
- * @param data Individual monster or armorset data
+ * @param gameId gameid of the monster or armor set
  * @param map The map that contains the association between gameId and image name
  * @returns The path to the image
  */
-export const getImage = (data: Monster | ArmorSet, map: Map<number, string>): string => {
+export const getImage = (gameId: number, map: Map<number, string>): string => {
     const PATH_TO_MONSTER_ASSET = '/assets/MonsterImages/';
-    const imgName = map.get(data.gameId);
+    const imgName = map.get(gameId);
     if (imgName === undefined) return `${PATH_TO_MONSTER_ASSET}Unknown.webp`;
     return `${PATH_TO_MONSTER_ASSET}${imgName}.webp`;
 }

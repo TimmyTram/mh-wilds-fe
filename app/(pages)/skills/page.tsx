@@ -8,7 +8,7 @@ import SkillCard from "@/app/components/MonsterHunter/Skills/SkillsCard";
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
-    const { data, loading, error } = useFetchAllMhData<Skill>('skills?p={"id": true, "name": true}', isLanguageLoaded ? language : undefined);
+    const { data, loading, error } = useFetchAllMhData<Skill>(`skills?p={"id": true, "name": true}`, isLanguageLoaded ? language : undefined);
 
     if (!isLanguageLoaded) {
         return <p>Loading language...</p>;

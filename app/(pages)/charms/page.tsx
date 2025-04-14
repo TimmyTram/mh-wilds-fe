@@ -8,7 +8,7 @@ import { sortByName } from "@/app/utils/utils";
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
-    const { data, loading, error } = useFetchAllMhData<CharmSet>("charms", isLanguageLoaded ? language : undefined);
+    const { data, loading, error } = useFetchAllMhData<CharmSet>(`charms`, isLanguageLoaded ? language : undefined);
 
     if (!isLanguageLoaded) {
         return <p>Loading language...</p>;
