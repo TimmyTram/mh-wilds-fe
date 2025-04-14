@@ -126,3 +126,12 @@ export const formatMonsterSpecies = (species: Species): string => {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
 }
+
+/**
+ * 
+ * @param name The name of the charm, which is in the format "CharmName I"
+ * @returns the formatted charm set name, which is in the format "CharmName"
+ */
+export const formatCharmSetName = (name: string): string => {
+    return name.substring(0, name.length - 1);
+}

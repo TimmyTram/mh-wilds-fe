@@ -15,4 +15,10 @@ export interface CharmRank {
     skills: SkillRank[];
     description: string;
     crafting: BaseCrafting;
+
+    charm?: Charm; // not listed in api docs, but api response differs here
 };
+
+export interface Charm {
+    id: number;
+}

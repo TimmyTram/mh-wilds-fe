@@ -8,7 +8,11 @@ import { sortByName } from "@/app/utils/utils";
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
-    const { data, loading, error } = useFetchAllMhData<CharmSet>(`charms`, isLanguageLoaded ? language : undefined);
+    const { data, loading, error } = useFetchAllMhData<CharmSet>(
+        `charms?p={"ranks.charm": true, "ranks.name": true}`,
+        isLanguageLoaded ? language : undefined
+    );
+
 
     if (!isLanguageLoaded) {
         return <p>Loading language...</p>;
@@ -25,8 +29,13 @@ const Page = () => {
             {data && data.length > 0 && (
                 <div className="flex flex-wrap gap-4">
                     {sortedData.map((charmSet: CharmSet) => (
-                        <CharmCard key={charmSet.id} charmSet={charmSet} />
+                        <CharmCard
+                            key={charmSet.ranks[0]?.charm?.id}
+                            id={charmSet.ranks[0]?.charm?.id}
+                            name={charmSet.ranks[0]?.name}
+                        />
                     ))}
+
                 </div>
             )}
             {data && data.length === 0 && <p>No charms available.</p>}

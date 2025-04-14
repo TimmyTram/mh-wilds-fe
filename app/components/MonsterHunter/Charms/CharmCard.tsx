@@ -1,20 +1,17 @@
-import { CharmSet } from "@/app/types/CharmData";
 import Link from "next/link";
+import { formatCharmSetName } from "@/app/utils/utils";
 
 interface CharmCardProps {
-    charmSet: CharmSet;
+    id: number | undefined;
+    name: string;
 }
 
-const CharmCard = ({ charmSet }: CharmCardProps) => {
+const CharmCard = ({ id, name }: CharmCardProps) => {
     return (
-        <Link href={`/charms/${charmSet.id}`} className="w-[200px]">
+        <Link href={`/charms/${id}`} className="w-[200px]">
             <div className="flex flex-col items-center justify-center p-4 border rounded-lg shadow-md w-[200px] h-[280px]">
                 <div className="flex flex-col items-center justify-center mb-4">
-                    {charmSet.ranks.map((charm) => (
-                        <div key={charm.id} className="flex flex-col items-center justify-center mb-2">
-                            <p className="text-center text-sm font-semibold">{charm.name}</p>
-                        </div>
-                    ))}
+                    <p>{formatCharmSetName(name)}</p>
                 </div>
             </div>
         </Link>
