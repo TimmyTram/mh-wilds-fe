@@ -67,8 +67,6 @@ const Page = () => {
 
     if (!isLanguageLoaded) return <p className="p-4">Loading language...</p>;
 
-    console.log(data);
-
     return (
         <div className="w-full px-4 md:px-8 py-4 overflow-x-auto">
             {loading && <p className="mb-4">Loading...</p>}
