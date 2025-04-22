@@ -1,7 +1,8 @@
 import { ISO639_1 } from "../types/ISO639-1";
-import { ArmorSet } from "../types/ArmorData";
-import { Monster, RewardConditionKind, Species } from "../types/MonsterData";
+import { RewardConditionKind, Species } from "../types/MonsterData";
 import { locationsMap, MonsterSpeciesMap, RewardConditionDisplayMap } from "../types/Associations/Associations";
+import { MonsterResistances } from "../types/MonsterResistances";
+import { MonsterWeakness } from "../types/MonsterWeakness";
 
 /**
  * 
@@ -134,4 +135,38 @@ export const formatMonsterSpecies = (species: Species): string => {
  */
 export const formatCharmSetName = (name: string): string => {
     return name.substring(0, name.length - 1);
+}
+
+/**
+ * 
+ * @param arg The argument may be a MonsterWeakness or MonsterResistances
+ * @returns the correct name of the kind
+ */
+export const getCorrectKind = (arg: MonsterWeakness | MonsterResistances): string => {
+    switch (arg.kind) {
+        case "element":
+            return arg.element;
+        case "status":
+            return arg.status;
+        case "effect":
+            return arg.effect;
+        default:
+            return "Unknown";
+    }
+}
+
+/**
+ * @param arg the argument is a string that represents the name of the file we want to render
+ * @param type type helps us to determine which image we want to render from which folder
+ * @returns the correct path to the image
+ */
+export const getCorrectImageKind = (arg: string, type: "element" | "status" | "effect"): string => {
+    switch (type) {
+        case "element":
+            return getElementImage(arg);
+        case "status":
+            return getStatusImage(arg);
+        case "effect":
+            return getEffectImage(arg);
+    }
 }

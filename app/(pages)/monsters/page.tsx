@@ -25,7 +25,7 @@ const Page = () => {
             {data && data.length > 0 && (
                 <div className="flex flex-wrap gap-4">
                     {sortedData.map((monster: Monster) => (
-                        <MonsterCard  key={monster.id} id={monster.id} gameId={monster.gameId} name={monster.name} />
+                        <MonsterCard key={monster.id} id={monster.id} gameId={monster.gameId} name={monster.name} />
                     ))}
                 </div>
             )}
