@@ -1,4 +1,3 @@
-import { Monster  } from "@/app/types/MonsterData";
 import Image from "next/image";
 import Link from "next/link";
 import { monsterMap } from "@/app/types/Associations/Associations";
