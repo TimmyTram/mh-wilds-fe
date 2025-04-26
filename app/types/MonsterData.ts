@@ -1,4 +1,4 @@
-import { Item } from "./MaterialData";
+import { Item } from './ItemData';
 import { Rank } from "./Rank";
 import { MonsterWeakness } from "./MonsterWeakness";
 import { MonsterResistances } from "./MonsterResistances";
