@@ -1,4 +1,4 @@
-import { Material } from "./MaterialData";
+import { Material } from "../materials/MaterialData";
 
 export interface BaseCrafting {
     materials: Material[];

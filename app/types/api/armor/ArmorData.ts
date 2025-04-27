@@ -1,5 +1,5 @@
-import { SkillRank } from "./SkillData";
-import { BaseCrafting } from "./Crafting";
+import { SkillRank } from "../skills/SkillData";
+import { BaseCrafting } from "../crafting/Crafting";
 
 
 // Basic types

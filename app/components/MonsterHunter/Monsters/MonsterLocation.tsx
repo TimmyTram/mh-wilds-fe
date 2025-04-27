@@ -1,4 +1,4 @@
-import { Location } from "@/app/types/Location";
+import { Location } from "@/app/types/api/locations/Location";
 import { getLocationThumbnailImage } from "@/app/utils/utils";
 
 interface MonsterLocationProps {
@@ -8,7 +8,7 @@ interface MonsterLocationProps {
 const MonsterLocation = ({ locations }: MonsterLocationProps) => {
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-4 text-center mb-6">Locations</h2>
+            <h2 className="text-2xl font-bold text-center mb-6">Locations</h2>
             <div className="grid grid-cols-2 gap-4">
                 {locations.map((location: Location, index: number) => (
                     <div

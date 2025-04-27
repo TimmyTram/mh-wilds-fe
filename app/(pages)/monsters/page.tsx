@@ -3,7 +3,7 @@
 import MonsterCard from "@/app/components/MonsterHunter/Monsters/MonsterCard";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchMhData from "@/app/hooks/fetchAllMhData";
-import { Monster } from "@/app/types/MonsterData";
+import { Monster } from "@/app/types/api/monsters/MonsterData";
 import { sortByName } from "@/app/utils/utils";
 
 const Page = () => {

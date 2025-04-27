@@ -1,5 +1,5 @@
-import { Monster } from "@/app/types/MonsterData";
-import { MonsterWeakness } from "@/app/types/MonsterWeakness";
+import { Monster } from "@/app/types/api/monsters/MonsterData";
+import { MonsterWeakness } from "@/app/types/api/monsters/MonsterWeakness";
 import { useIsMobile } from "@/app/hooks/frontend/useIsMobile"
 import Star from "../../Stars/Stars";
 import MonsterAttributeDisplay from "./shared/MonsterAttributeDisplay";
@@ -48,7 +48,7 @@ const MonsterWeaknessChart = ({ monster }: MonsterWeaknessChartProps) => {
     return (
         <div>
             {isMobile ? (
-                <div className="border border-4 p-4 rounded-lg shadow-md bg-card">
+                <div className="border-4 p-4 rounded-lg shadow-md bg-card">
                     <LegendDisplay />
                     <div className="grid grid-cols-2 gap-4">
                         <h2 className="text-lg font-bold">WEAKNESSES</h2>
@@ -59,8 +59,8 @@ const MonsterWeaknessChart = ({ monster }: MonsterWeaknessChartProps) => {
                     <WeaknessDisplay weaknesses={weaknesses.filter(weakness => weakness.kind === "effect")} type="effect" className="grid grid-cols-2 gap-4" />
                 </div>
             ) : (
-                <div className="border border-4 p-4 rounded-lg shadow-md bg-card items-center justify-center">
-                    <h2 className="text-lg font-bold italic font-bold underline underline-offset-4 decoration-2 text-center mb-4">
+                <div className="border-4 p-4 rounded-lg shadow-md bg-card items-center justify-center">
+                    <h2 className="text-lg font-bold italic underline underline-offset-4 decoration-2 text-center mb-4">
                         Weaknesses
                     </h2>
                     <div className="flex flex-row justify-center items-center gap-4">

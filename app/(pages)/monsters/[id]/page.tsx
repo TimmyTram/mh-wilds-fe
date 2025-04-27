@@ -3,7 +3,7 @@
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { useParams } from "next/navigation";
-import { Monster } from "@/app/types/MonsterData";
+import { Monster } from "@/app/types/api/monsters/MonsterData";
 import MonsterHeader from "@/app/components/MonsterHunter/Monsters/MonsterHeader";
 import MonsterWeaknessChart from "@/app/components/MonsterHunter/Monsters/MonsterWeaknessChart";
 import MonsterRewards from "@/app/components/MonsterHunter/Monsters/MonsterRewards";
@@ -55,7 +55,6 @@ const Page = () => {
                     <Divider />
                     <MonsterLocation locations={data.locations} />
                 </div>
-
             </div>
         </div>
     );

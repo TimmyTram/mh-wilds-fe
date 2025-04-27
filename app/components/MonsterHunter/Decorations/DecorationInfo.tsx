@@ -1,4 +1,4 @@
-import { SkillRank } from "@/app/types/SkillData";
+import { SkillRank } from "@/app/types/api/skills/SkillData";
 
 interface DecorationInfoProps {
     description: string;

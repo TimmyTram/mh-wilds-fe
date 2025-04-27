@@ -3,7 +3,7 @@
 import CharmCard from "@/app/components/MonsterHunter/Charms/CharmCard";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
-import { CharmSet } from "@/app/types/CharmData";
+import { CharmSet } from "@/app/types/api/charms/CharmData";
 import { sortByName } from "@/app/utils/utils";
 
 const Page = () => {

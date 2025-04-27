@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import { MonsterWeakness } from '@/app/types/MonsterWeakness';
-import { MonsterResistances } from '@/app/types/MonsterResistances';
+import { MonsterWeakness } from '@/app/types/api/monsters/MonsterWeakness';
+import { MonsterResistances } from '@/app/types/api/monsters/MonsterResistances';
 import { getCorrectImageKind, getCorrectKind } from '@/app/utils/utils';
 import Star from '../../../Stars/Stars';
 

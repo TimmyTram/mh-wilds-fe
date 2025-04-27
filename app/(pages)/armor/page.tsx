@@ -3,7 +3,7 @@
 import ArmorCard from "@/app/components/MonsterHunter/Armor/ArmorCard";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
-import { ArmorSet } from "@/app/types/ArmorData";
+import { ArmorSet } from "@/app/types/api/armor/ArmorData";
 import { sortByName } from "@/app/utils/utils";
 
 const Page = () => {

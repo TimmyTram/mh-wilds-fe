@@ -2,7 +2,7 @@
 
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
-import { Skill } from "@/app/types/SkillData";
+import { Skill } from "@/app/types/api/skills/SkillData";
 import { sortByName } from "@/app/utils/utils";
 import SkillCard from "@/app/components/MonsterHunter/Skills/SkillsCard";
 

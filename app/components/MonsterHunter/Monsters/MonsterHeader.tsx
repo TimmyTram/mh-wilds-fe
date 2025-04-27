@@ -1,4 +1,4 @@
-import { Monster } from "@/app/types/MonsterData";
+import { Monster } from "@/app/types/api/monsters/MonsterData";
 import { monsterMap } from "@/app/types/Associations/Associations";
 import Image from "next/image";
 import { formatMonsterSpecies, getImage } from "@/app/utils/utils";

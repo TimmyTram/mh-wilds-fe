@@ -1,7 +1,7 @@
-import { ArmorPiece } from "@/app/types/ArmorData";
+import { ArmorPiece } from "@/app/types/api/armor/ArmorData";
 import Divider from "../../UI/Divider/Divider";
 import Image from "next/image";
-import { SkillRank } from "@/app/types/SkillData";
+import { SkillRank } from "@/app/types/api/skills/SkillData";
 
 interface SlotsAndSkillsDisplayProps {
     pieces: ArmorPiece[];

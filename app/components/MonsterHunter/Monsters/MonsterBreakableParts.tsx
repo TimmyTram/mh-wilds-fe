@@ -1,4 +1,4 @@
-import { MonsterPart } from "@/app/types/MonsterData";
+import { MonsterPart } from "@/app/types/api/monsters/MonsterData";
 
 interface MonsterBreakablePartsProps {
     monsterParts: MonsterPart[];

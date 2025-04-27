@@ -1,4 +1,4 @@
-import { ArmorPiece } from "@/app/types/ArmorData";
+import { ArmorPiece } from "@/app/types/api/armor/ArmorData";
 import Divider from "@/app/components/UI/Divider/Divider";
 
 interface LoreDisplayProps {

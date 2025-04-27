@@ -5,7 +5,7 @@ import ItemInfo from "@/app/components/MonsterHunter/Items/ItemInfo";
 import ItemRecipeInfo from "@/app/components/MonsterHunter/Items/ItemRecipeInfo";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
-import { Item } from "@/app/types/ItemData";
+import { Item } from "@/app/types/api/items/ItemData";
 import { useParams } from "next/navigation";
 
 

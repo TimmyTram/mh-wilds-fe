@@ -2,7 +2,7 @@
 
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
-import { ArmorPiece, ArmorSet } from "@/app/types/ArmorData";
+import { ArmorPiece, ArmorSet } from "@/app/types/api/armor/ArmorData";
 import { useParams } from "next/navigation";
 import Divider from "../../../components/UI/Divider/Divider";
 import LoreDisplay from "@/app/components/MonsterHunter/Armor/LoreDisplay";

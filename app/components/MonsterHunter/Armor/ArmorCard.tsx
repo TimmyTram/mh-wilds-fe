@@ -1,4 +1,4 @@
-import { ArmorPiece, ArmorSet } from "@/app/types/ArmorData";
+import { ArmorPiece } from "@/app/types/api/armor/ArmorData";
 import Image from "next/image";
 import Link from "next/link";
 import { armorSetsMap } from "@/app/types/Associations/Associations";

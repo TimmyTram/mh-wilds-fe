@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import ItemCard from './ItemCard';
-import { Item } from '@/app/types/ItemData';
+import { Item } from '@/app/types/api/items/ItemData';
 
 interface ItemListProps {
     items: Item[];

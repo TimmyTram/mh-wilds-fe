@@ -1,5 +1,5 @@
-import { BaseCrafting } from "@/app/types/Crafting";
-import { Material } from "@/app/types/MaterialData";
+import { BaseCrafting } from "@/app/types/api/crafting/Crafting";
+import { Material } from "@/app/types/api/materials/MaterialData";
 
 interface CraftingDisplayProps {
     itemName: string;

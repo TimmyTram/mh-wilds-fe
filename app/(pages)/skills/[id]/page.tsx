@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
-import { Skill, SkillRank } from "@/app/types/SkillData";
+import { Skill, SkillRank } from "@/app/types/api/skills/SkillData";
 import Image from 'next/image';
 
 

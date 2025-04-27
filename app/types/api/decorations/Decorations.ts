@@ -1,4 +1,4 @@
-import { SkillRank } from "./SkillData";
+import { SkillRank } from "../skills/SkillData";
 
 export enum DecorationKind {
     weapon,

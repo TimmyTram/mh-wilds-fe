@@ -4,7 +4,7 @@ import DecorationHeader from "@/app/components/MonsterHunter/Decorations/Decorat
 import DecorationInfo from "@/app/components/MonsterHunter/Decorations/DecorationInfo";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
-import { Decoration } from "@/app/types/Decorations";
+import { Decoration } from "@/app/types/api/decorations/Decorations";
 import { useParams } from "next/navigation";
 
 

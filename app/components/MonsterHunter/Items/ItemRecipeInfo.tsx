@@ -1,4 +1,4 @@
-import { ItemRecipe } from "@/app/types/ItemData";
+import { ItemRecipe } from "@/app/types/api/items/ItemData";
 
 interface ItemRecipeInfo {
     recipes: ItemRecipe[];

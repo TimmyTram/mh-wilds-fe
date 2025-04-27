@@ -1,4 +1,4 @@
-import { MonsterReward, RewardCondition } from "@/app/types/MonsterData";
+import { MonsterReward, RewardCondition } from "@/app/types/api/monsters/MonsterData";
 import { formatRewardCondition } from "@/app/utils/utils";
 
 interface MonsterRewardsProps {
@@ -26,7 +26,7 @@ const MonsterRewards = ({ rewards }: MonsterRewardsProps) => {
                 {rewards.map((reward: MonsterReward, index: number) => (
                     <div
                         key={index}
-                        className="p-4 rounded-2xl shadow-md border border-4"
+                        className="p-4 rounded-2xl shadow-md border-4"
                     >
                         <p className="text-lg font-semibold mb-2 text-center">
                             {reward.item.name}

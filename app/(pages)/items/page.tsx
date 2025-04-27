@@ -3,7 +3,7 @@
 import { useState, useMemo, useCallback, useDeferredValue } from 'react';
 import useFetchAllMhData from '@/app/hooks/fetchAllMhData';
 import { useLanguageContext } from '@/app/Context/LanguageProvider';
-import { Item } from '@/app/types/ItemData';
+import { Item } from '@/app/types/api/items/ItemData';
 import Searchbar from '@/app/components/UI/Searchbar/Searchbar';
 import ItemList from '@/app/components/MonsterHunter/Items/ItemList';
 

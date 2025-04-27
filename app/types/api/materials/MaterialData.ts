@@ -1,4 +1,4 @@
-import { Item } from './ItemData';
+import { Item } from '../items/ItemData';
 
 export interface Material {
     item: Item;

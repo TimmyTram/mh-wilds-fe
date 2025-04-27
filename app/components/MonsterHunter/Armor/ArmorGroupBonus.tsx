@@ -1,4 +1,4 @@
-import { Bonus } from "@/app/types/ArmorData";
+import { Bonus } from "@/app/types/api/armor/ArmorData";
 import Divider from "../../UI/Divider/Divider";
 
 interface ArmorGroupBonusProps {

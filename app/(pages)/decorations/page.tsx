@@ -3,7 +3,7 @@
 import DecorationCard from "@/app/components/MonsterHunter/Decorations/DecorationCard";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
-import { Decoration } from "@/app/types/Decorations";
+import { Decoration } from "@/app/types/api/decorations/Decorations";
 import { sortByName } from "@/app/utils/utils";
 
 const Page = () => {

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { SkillIcon } from '@/app/types/SkillData';
+import { SkillIcon } from '@/app/types/api/skills/SkillData';
 import Image from 'next/image';
 
 interface SkillCardProps {

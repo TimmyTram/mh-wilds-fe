@@ -1,8 +1,8 @@
-import { Item } from './ItemData';
-import { Rank } from "./Rank";
-import { MonsterWeakness } from "./MonsterWeakness";
-import { MonsterResistances } from "./MonsterResistances";
-import { Location } from "./Location";
+import { Item } from '../items/ItemData';
+import { Rank } from "../skills/Rank";
+import { MonsterWeakness } from "../monsters/MonsterWeakness";
+import { MonsterResistances } from "../monsters/MonsterResistances";
+import { Location } from "../locations/Location";
 
 enum MonsterKind {
     small = 'small',

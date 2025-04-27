@@ -4,10 +4,10 @@ import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { useParams } from "next/navigation";
 import Divider from "../../../components/UI/Divider/Divider";
-import { CharmRank, CharmSet } from "@/app/types/CharmData";
+import { CharmRank, CharmSet } from "@/app/types/api/charms/CharmData";
 import CraftingDisplay from "@/app/components/MonsterHunter/Crafting/CraftingDisplay";
 import { useIsMobile } from "@/app/hooks/frontend/useIsMobile";
-import { SkillRank } from "@/app/types/SkillData";
+import { SkillRank } from "@/app/types/api/skills/SkillData";
 
 const CharmHeader = () => (
     <div className="hidden md:grid grid-cols-4 gap-4 mb-2 font-semibold text-base md:text-lg">

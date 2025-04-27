@@ -1,4 +1,4 @@
-import { MonsterSize } from "@/app/types/MonsterData";
+import { MonsterSize } from "@/app/types/api/monsters/MonsterData";
 import Image from "next/image";
 import { getCrownImage } from "@/app/utils/utils";
 

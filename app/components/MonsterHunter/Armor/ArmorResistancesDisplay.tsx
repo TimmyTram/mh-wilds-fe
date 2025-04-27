@@ -1,4 +1,4 @@
-import { ArmorPiece } from "@/app/types/ArmorData";
+import { ArmorPiece } from "@/app/types/api/armor/ArmorData";
 import Divider from "../../UI/Divider/Divider";
 import Image from "next/image";
 import { useIsMobile } from "@/app/hooks/frontend/useIsMobile";

@@ -1,4 +1,4 @@
-import { ItemIcon } from "@/app/types/ItemData";
+import { ItemIcon } from "@/app/types/api/items/ItemData";
 import Image from "next/image";
 import { colorMap } from "@/app/utils/colorMap";
 

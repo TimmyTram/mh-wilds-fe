@@ -1,5 +1,5 @@
-import { Monster } from "@/app/types/MonsterData";
-import { MonsterResistances } from "@/app/types/MonsterResistances";
+import { Monster } from "@/app/types/api/monsters/MonsterData";
+import { MonsterResistances } from "@/app/types/api/monsters/MonsterResistances";
 import MonsterAttributeDisplay from "@/app/components/MonsterHunter/Monsters/shared/MonsterAttributeDisplay";
 
 interface MonsterResistancesChartProps {
@@ -16,7 +16,7 @@ const MonsterResistancesChart = ({ monster }: MonsterResistancesChartProps) => {
     return (
         <>
             <div className="border-4 rounded-lg shadow-md p-4 bg-card">
-                <h2 className="text-lg font-bold italic font-bold underline underline-offset-4 decoration-2 text-center mb-4">
+                <h2 className="text-lg font-bold italic underline underline-offset-4 decoration-2 text-center mb-4">
                     Resistances
                 </h2>
                 <div className="flex flex-row justify-center items-center gap-4">
