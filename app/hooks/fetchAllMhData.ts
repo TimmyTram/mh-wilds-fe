@@ -10,7 +10,8 @@ const useFetchAllMhData = <T>(endpoint: string, language?: string) => {
 
     useEffect(() => {
         if(!language) return; // Ensure language is defined before making the fetch call
-        
+        if(!endpoint || endpoint === "") return; // Ensure endpoint is defined before making the fetch call
+
         console.log(`Fetching from: ${API_URL}${language}/${endpoint}`);
         fetch(`${API_URL}${language}/${endpoint}`)
         .then((response) => {

@@ -3,6 +3,7 @@ import { RewardConditionKind, Species } from "../types/api/monsters/MonsterData"
 import { locationsMap, MonsterSpeciesMap, RewardConditionDisplayMap } from "../types/Associations/Associations";
 import { MonsterResistances } from "../types/api/monsters/MonsterResistances";
 import { MonsterWeakness } from "../types/api/monsters/MonsterWeakness";
+import { WeaponSpecial, WeaponSpecialBase, WeaponSpecialElement, WeaponSpecialStatus } from "../types/api/weapons/Weapon";
 
 /**
  * 
@@ -142,14 +143,14 @@ export const formatCharmSetName = (name: string): string => {
  * @param arg The argument may be a MonsterWeakness or MonsterResistances
  * @returns the correct name of the kind
  */
-export const getCorrectKind = (arg: MonsterWeakness | MonsterResistances): string => {
+export const getCorrectKind = (arg: MonsterWeakness | MonsterResistances | WeaponSpecialElement | WeaponSpecialStatus): string => {
     switch (arg.kind) {
         case "element":
-            return arg.element;
+            return arg.element.toString();
         case "status":
-            return arg.status;
+            return arg.status.toString();
         case "effect":
-            return arg.effect;
+            return arg.effect.toString();
         default:
             return "Unknown";
     }

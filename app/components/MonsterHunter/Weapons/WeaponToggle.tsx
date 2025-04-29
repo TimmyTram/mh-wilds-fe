@@ -8,18 +8,22 @@ interface WeaponToggleProps {
 
 interface WeaponCardProps {
     weapon: string;
-    className?: string;
     setWeaponKind: (kind: string) => void;
+    className?: string;
+    disabled?: boolean;
 }
 
-const WeaponCard = ({ weapon, className, setWeaponKind }: WeaponCardProps) => {
-    
+const WeaponCard = ({ weapon, className, setWeaponKind, disabled }: WeaponCardProps) => {
+
     const handleToggle = (kind: string) => {
-        setWeaponKind(kind);
+        if (!disabled) {
+            console.log("Selected weapon kind:", kind);
+            setWeaponKind(kind);
+        }
     }
-    
+
     return (
-        <button className={className} onClick={() => handleToggle(weapon)}>
+        <button className={className} onClick={() => handleToggle(weapon)} disabled={disabled}>
             <Image
                 src={`/assets/Weapons/${weapon}.png`}
                 alt={weapon}
@@ -38,7 +42,7 @@ const WeaponToggle = ({ currentWeapon, setWeaponKind }: WeaponToggleProps) => {
                 {/* Loop thru weapons and show a border for current weapon selected */}
                 {weapons.map((weaponKind: string, index: number) => (
                     (currentWeapon === weaponKind ? (
-                        <WeaponCard key={index} weapon={weaponKind} setWeaponKind={setWeaponKind} className="p-2 border-2 border-primary rounded-lg bg-cardHover" />
+                        <WeaponCard key={index} weapon={weaponKind} setWeaponKind={setWeaponKind} className="p-2 border-2 border-primary rounded-lg bg-cardHover cursor-not-allowed" disabled={true} />
                     ) : (
                         <WeaponCard key={index} weapon={weaponKind} setWeaponKind={setWeaponKind} />
                     ))

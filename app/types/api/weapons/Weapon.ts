@@ -24,18 +24,18 @@ enum Elderseal {
     high,
 }
 
-interface WeaponSpecialBase {
+export interface WeaponSpecialBase {
     id: number;
     damage: WeaponDamage;
     hidden: boolean;
 }
 
-interface WeaponSpecialElement extends WeaponSpecialBase {
+export interface WeaponSpecialElement extends WeaponSpecialBase {
     kind: 'element';
     element: Element;
 }
 
-interface WeaponSpecialStatus extends WeaponSpecialBase {
+export interface WeaponSpecialStatus extends WeaponSpecialBase {
     kind: 'status';
     status: Status;
 }
