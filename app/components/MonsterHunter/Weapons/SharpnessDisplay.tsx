@@ -35,7 +35,7 @@ const SharpnessDisplay = ({ sharpness }: SharpnessDisplayProps) => {
     const sharpnessPixels = calculateSharpnessPixels(sharpness);
 
     return (
-        <div className="border-2 h-[20px] flex overflow-hidden"
+        <div className="border-4 border-black h-[24px] flex overflow-hidden bg-black"
             style={{ width: `${widthOfSharpness}px` }}
         >
             {colorOrder.map((color) => {
