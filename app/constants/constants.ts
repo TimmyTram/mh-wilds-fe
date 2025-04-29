@@ -1,0 +1,16 @@
+export const weapons = [
+    "great-sword",
+    "sword-shield",
+    "dual-blades",
+    "long-sword",
+    "hammer",
+    "hunting-horn",
+    "lance",
+    "gunlance",
+    "switch-axe",
+    "charge-blade",
+    "insect-glaive",
+    "bow",
+    "light-bowgun",
+    "heavy-bowgun",
+];
