@@ -2,6 +2,7 @@ import { Weapon } from "@/app/types/api/weapons/Weapon";
 import { getCorrectImageKind, getCorrectKind } from "@/app/utils/utils";
 import Image from "next/image";
 import SharpnessDisplay from "./SharpnessDisplay";
+import WeaponRarity from "./WeaponRarity";
 
 interface WeaponTableProps {
     weapons: Weapon[];
@@ -15,7 +16,10 @@ interface WeaponRowProps {
 const WeaponRow = ({ weapon }: WeaponRowProps) => {
     return (
         <div className="w-full border-b-4 p-4 sm:p-10 grid grid-cols-12 gap-2 sm:gap-0">
-            <p className="col-span-12 sm:col-span-2 text-xs sm:text-base text-center sm:text-left">{weapon.name}</p>
+            <div className="col-span-12 sm:col-span-2 text-xs sm:text-base sm:text-left flex flex-row items-center justify-center sm:justify-start gap-2 sm:gap-4">
+                <WeaponRarity kind={weapon.kind} rarity={weapon.rarity} />
+                {weapon.name}
+            </div>
             <div className="col-span-12 sm:col-span-2">
                 <div className="flex flex-row flex-wrap gap-2 sm:gap-4 justify-center sm:justify-end">
                     {weapon.slots.map((slot: number, index: number) => (

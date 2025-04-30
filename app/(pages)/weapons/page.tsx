@@ -10,7 +10,7 @@ import WeaponTable from "@/app/components/MonsterHunter/Weapons/WeaponTable";
 const Page = () => {
     const [kind, setKind] = useState("great-sword");
     const { language, isLanguageLoaded } = useLanguageContext();
-    const query = `weapons?q={"kind":"${kind}"}&p={"id":true,"name":true,"crafting.row":true,"crafting.column":true, "slots": true, "affinity": true, "sharpness": true, "damage.raw": true, "specials": true}`;
+    const query = `weapons?q={"kind":"${kind}"}&p={"id":true,"name":true, "kind":true, "rarity":true,"crafting.row":true,"crafting.column":true, "slots": true, "affinity": true, "sharpness": true, "damage.raw": true, "specials": true}`;
     const { data, loading, error } = useFetchAllMhData<Weapon>(
         query,
         isLanguageLoaded ? language : undefined

@@ -1,6 +1,6 @@
 import { ItemIcon } from "@/app/types/api/items/ItemData";
 import Image from "next/image";
-import { colorMap } from "@/app/utils/colorMap";
+import { colorMap } from "@/app/constants/colorMap";
 
 interface ItemHeaderProps {
     name: string;
