@@ -1,6 +1,6 @@
 import { ISO639_1 } from "../types/ISO639-1";
 import { RewardConditionKind, Species } from "../types/api/monsters/MonsterData";
-import { locationsMap, MonsterSpeciesMap, RewardConditionDisplayMap } from "../types/Associations/Associations";
+import { locationsMap, MonsterSpeciesMap, RewardConditionDisplayMap } from "../constants/Associations/Associations";
 import { MonsterResistances } from "../types/api/monsters/MonsterResistances";
 import { MonsterWeakness } from "../types/api/monsters/MonsterWeakness";
 import { WeaponSpecial, WeaponSpecialBase, WeaponSpecialElement, WeaponSpecialStatus } from "../types/api/weapons/Weapon";

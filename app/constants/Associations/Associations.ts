@@ -1,4 +1,4 @@
-import { RewardConditionKind, Species } from "../api/monsters/MonsterData";
+import { RewardConditionKind, Species } from "../../types/api/monsters/MonsterData";
 
 /**
  * This is used to map gameIds of armor sets to their respective monster.
