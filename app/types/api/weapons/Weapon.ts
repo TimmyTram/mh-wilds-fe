@@ -1,4 +1,4 @@
-import { Item } from "../items/ItemData";
+import { CraftingCost } from "../crafting/Crafting";
 import { SkillRank } from "../skills/SkillData";
 import { WeaponKindSubtype } from "./WeaponKind";
 
@@ -52,10 +52,6 @@ export interface Sharpness {
     purple: number;
 }
 
-interface CraftingCost {
-    quantity: number;
-    item: Item;
-}
 
 export interface WeaponCrafting {
     id: number;
@@ -99,4 +95,6 @@ export interface Weapon {
     // The value of the slot is the highest level of decoration that can fit in that slot.
     crafting: WeaponCrafting;
     series: WeaponSeries;
+
+    description: string;
 }

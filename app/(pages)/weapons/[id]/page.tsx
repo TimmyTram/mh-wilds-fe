@@ -8,6 +8,8 @@ import WeaponHeader from "@/app/components/MonsterHunter/Weapons/WeaponHeader";
 import SharpnessDisplay from "@/app/components/MonsterHunter/Weapons/SharpnessDisplay";
 import WeaponStats from "@/app/components/MonsterHunter/Weapons/WeaponStats";
 import WeaponSkill from "@/app/components/MonsterHunter/Weapons/WeaponSkill";
+import WeaponDescription from "@/app/components/MonsterHunter/Weapons/WeaponDescription";
+import WeaponCraftingDisplay from "@/app/components/MonsterHunter/Weapons/WeaponCraftingDisplay";
 
 const Page = () => {
     const { id } = useParams();
@@ -22,15 +24,14 @@ const Page = () => {
     return data ? (
         <div className="container mx-auto p-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="p-4 md:p-6 bg-card rounded-lg shadow-lg flex items-center justify-center">
-                    <div className="flex flex-col items-center justify-center w-full">
-                        <WeaponHeader
-                            name={data.name}
-                            kind={data.kind}
-                            series={data.series}
-                            rarity={data.rarity}
-                        />
-                    </div>
+                <div className="p-4 md:p-6 bg-card rounded-lg shadow-lg flex flex-col">
+                    <WeaponHeader
+                        name={data.name}
+                        kind={data.kind}
+                        series={data.series}
+                        rarity={data.rarity}
+                    />
+                    <WeaponDescription description={data.description} />
                 </div>
 
                 <div className="flex flex-col space-y-6 p-4 md:p-6 bg-card rounded-lg shadow-lg">
@@ -59,6 +60,9 @@ const Page = () => {
                     <WeaponSkill skills={data.skills} />
                 </div>
             </div>
+            
+            <WeaponCraftingDisplay crafting={data.crafting} />
+            
         </div>
     ) : (
         <div className="container mx-auto flex items-center justify-center p-8">
