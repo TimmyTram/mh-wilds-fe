@@ -48,7 +48,7 @@ const WeaponCard = ({ weapon }: WeaponCardProps) => {
                 {weapon.affinity}%
             </p>
             <div className="col-span-12 sm:col-span-5 flex items-center justify-center gap-2 sm:gap-4">
-                <SharpnessDisplay sharpness={weapon.sharpness} />
+                <SharpnessDisplay sharpness={weapon.sharpness} width={250} />
             </div>
         </Link>
     );

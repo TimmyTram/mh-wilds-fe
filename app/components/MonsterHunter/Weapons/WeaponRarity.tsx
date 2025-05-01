@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { WeaponKindSubtype } from "@/app/types/api/weapons/WeaponKind";
-import { rarityColorMap } from "@/app/constants/rarityColorMap";
-import Image from "next/image";
+import WeaponImage from "./WeaponImage";
 
 interface WeaponRarityProps {
     kind: WeaponKindSubtype;
@@ -12,7 +11,6 @@ interface WeaponRarityProps {
 
 const WeaponRarity = ({ kind, rarity }: WeaponRarityProps) => {
     const [hovered, setHovered] = useState(false);
-    const tintColor = rarityColorMap[rarity] || "#a7a6a1";
 
     return (
         <div
@@ -20,24 +18,7 @@ const WeaponRarity = ({ kind, rarity }: WeaponRarityProps) => {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
-            <div className="relative items-center justify-center flex p-2">
-                <Image
-                    src={`/assets/Weapons/${kind}.png`}
-                    alt={kind.toString()}
-                    width={32}
-                    height={32}
-                    className="object-contain"
-                />
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        backgroundColor: tintColor,
-                        mixBlendMode: "multiply",
-                        opacity: 1,
-                        borderRadius: "8px",
-                    }}
-                />
-            </div>
+            <WeaponImage kind={kind} rarity={rarity} width={32} height={32} />
 
             {hovered && (
                 <div className="absolute top-full mt-2 text-sm bg-black text-white px-2 py-1 rounded shadow-lg z-10">

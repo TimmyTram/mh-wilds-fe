@@ -33,8 +33,6 @@ const Page = () => {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
-    console.log(data);
-
     return (
         <div>
             <WeaponToggle currentWeapon={kind} setWeaponKind={setKind} />

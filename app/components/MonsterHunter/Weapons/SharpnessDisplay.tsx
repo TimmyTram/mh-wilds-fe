@@ -1,16 +1,14 @@
 import { Sharpness } from "@/app/types/api/weapons/Weapon";
 
-// change this to change the width of sharpness bar in pixels
-const widthOfSharpness = 250;
-
 interface SharpnessDisplayProps {
     sharpness: Sharpness;
+    width: number;
 }
 
-function calculateSharpnessPixels(sharpness: Sharpness) {
+function calculateSharpnessPixels(sharpness: Sharpness, width: number) {
     const pixels = new Map<string, number>();
     for (const [key, value] of Object.entries(sharpness)) {
-        pixels.set(key, Math.floor((value / 400) * widthOfSharpness));
+        pixels.set(key, Math.floor((value / 400) * width));
     }
     return pixels;
 }
@@ -29,14 +27,14 @@ const sharpnessColors: Record<keyof Sharpness, string> = {
     purple: "bg-[#885aec]",
 };
 
-const SharpnessDisplay = ({ sharpness }: SharpnessDisplayProps) => {
+const SharpnessDisplay = ({ sharpness, width }: SharpnessDisplayProps) => {
     if (!sharpness) return null;
 
-    const sharpnessPixels = calculateSharpnessPixels(sharpness);
+    const sharpnessPixels = calculateSharpnessPixels(sharpness, width);
 
     return (
         <div className="border-4 border-black h-[24px] flex overflow-hidden bg-black"
-            style={{ width: `${widthOfSharpness}px` }}
+            style={{ width: `${width}px` }}
         >
             {colorOrder.map((color) => {
                 const width = sharpnessPixels.get(color) ?? 0;

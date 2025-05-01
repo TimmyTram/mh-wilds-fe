@@ -2,7 +2,7 @@ import { Item } from "../items/ItemData";
 import { SkillRank } from "../skills/SkillData";
 import { WeaponKindSubtype } from "./WeaponKind";
 
-enum Element {
+export enum Element {
     fire,
     water,
     ice,
@@ -11,14 +11,14 @@ enum Element {
     blast,
 }
 
-enum Status {
+export enum Status {
     poison,
     sleep,
     paralysis,
     stun,
 }
 
-enum Elderseal {
+export enum Elderseal {
     low,
     average,
     high,
@@ -78,6 +78,7 @@ export interface WeaponDamage {
 export interface WeaponSeries {
     id: number;
     gameId: number;
+    name: string;
 }
 
 export interface Weapon {

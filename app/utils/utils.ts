@@ -171,3 +171,7 @@ export const getCorrectImageKind = (arg: string, type: "element" | "status" | "e
             return getEffectImage(arg);
     }
 }
+
+export const capitalize = (val: string): string => {
+    return val.charAt(0).toUpperCase() + val.slice(1);
+}
