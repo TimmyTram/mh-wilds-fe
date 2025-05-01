@@ -9,7 +9,7 @@ import SharpnessDisplay from "@/app/components/MonsterHunter/Weapons/SharpnessDi
 import WeaponStats from "@/app/components/MonsterHunter/Weapons/WeaponStats";
 import WeaponSkill from "@/app/components/MonsterHunter/Weapons/WeaponSkill";
 import WeaponDescription from "@/app/components/MonsterHunter/Weapons/WeaponDescription";
-import WeaponCraftingDisplay from "@/app/components/MonsterHunter/Weapons/WeaponCraftingDisplay";
+import WeaponMaterialsDisplay from "@/app/components/MonsterHunter/Weapons/WeaponMaterialDisplay";
 
 const Page = () => {
     const { id } = useParams();
@@ -61,8 +61,7 @@ const Page = () => {
                 </div>
             </div>
             
-            <WeaponCraftingDisplay crafting={data.crafting} />
-            
+            <WeaponMaterialsDisplay crafting={data.crafting} />
         </div>
     ) : (
         <div className="container mx-auto flex items-center justify-center p-8">
