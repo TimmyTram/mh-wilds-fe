@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from "react";
 import { Sharpness } from "@/app/types/api/weapons/Weapon";
 
 interface SharpnessDisplayProps {
@@ -28,6 +31,8 @@ const sharpnessColors: Record<keyof Sharpness, string> = {
 };
 
 const SharpnessDisplay = ({ sharpness, width }: SharpnessDisplayProps) => {
+    const [hovered, setHovered] = useState(false);
+
     if (!sharpness) return null;
 
     const sharpnessPixels = calculateSharpnessPixels(sharpness, width);
@@ -35,6 +40,8 @@ const SharpnessDisplay = ({ sharpness, width }: SharpnessDisplayProps) => {
     return (
         <div className="border-4 border-black h-[24px] flex overflow-hidden bg-black"
             style={{ width: `${width}px` }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
         >
             {colorOrder.map((color) => {
                 const width = sharpnessPixels.get(color) ?? 0;
@@ -47,6 +54,17 @@ const SharpnessDisplay = ({ sharpness, width }: SharpnessDisplayProps) => {
                     />
                 );
             })}
+
+            {hovered && (
+                <div className="absolute mt-6 text-sm bg-black text-white px-2 py-1 rounded shadow-lg z-10">
+                    {Object.entries(sharpness).map(([key, value]) => (
+                        <div key={key} className="flex items-center gap-1">
+                            <span className="font-bold">{key.charAt(0).toUpperCase() + key.slice(1)}:</span>
+                            <span>{value} Hits</span>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
