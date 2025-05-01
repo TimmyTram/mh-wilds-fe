@@ -14,3 +14,15 @@ export const weapons = [
     "light-bowgun",
     "heavy-bowgun",
 ];
+
+// for sidebar
+// key = resourceName, value = link
+export const sidebarItems = new Map([
+    ["Monsters", "/monsters"],
+    ["Armor", "/armor"],
+    ["Weapons", "/weapons"],
+    ["Charms", "/charms"],
+    ["Decorations", "/decorations"],
+    ["Skills", "/skills"],
+    ["Items", "/items"],
+])

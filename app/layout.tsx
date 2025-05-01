@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { DarkModeProviders } from "./providers";
+import { DarkModeProviders } from "./Context/DarkModeProviders";
 import { LanguageProvider } from "./Context/LanguageProvider";
 import Content from "./components/layout/Content";
 

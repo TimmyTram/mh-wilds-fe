@@ -1,3 +1,4 @@
+import { sidebarItems } from "@/app/constants/constants";
 import SidebarItem from "./SidebarItems/SidebarItem";
 
 const Sidebar = () => {
@@ -6,13 +7,9 @@ const Sidebar = () => {
             
             <h2>Navigation Resources</h2>
             <ul>
-                <SidebarItem resourceName="Monsters" link="/monsters" />
-                <SidebarItem resourceName="Armor" link="/armor" />
-                <SidebarItem resourceName="Weapons" link="/weapons" />
-                <SidebarItem resourceName="Charms" link="/charms" />
-                <SidebarItem resourceName="Decorations" link="/decorations" />
-                <SidebarItem resourceName="Skills" link="/skills" />
-                <SidebarItem resourceName="Items" link="/items" />
+                {Array.from(sidebarItems).map(([key, value]) => (
+                    <SidebarItem key={key} resourceName={key} link={value} />
+                ))}
             </ul>
         </div>
     );
