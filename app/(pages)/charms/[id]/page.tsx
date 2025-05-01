@@ -52,7 +52,7 @@ const CharmCraftingSection = ({ ranks }: { ranks: CharmRank[] }) => (
     <div className="space-y-6">
         {ranks.map((rank, index) => (
             <div key={index}>
-                <CraftingDisplay itemName={rank.name} crafting={rank.crafting} />
+                <CraftingDisplay itemName={rank.name} zennyCost={rank.crafting.zennyCost} crafting={rank.crafting.materials} />
                 <Divider />
             </div>
         ))}

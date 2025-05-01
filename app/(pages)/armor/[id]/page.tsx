@@ -52,7 +52,7 @@ const Page = () => {
                 {data && data.pieces && data.pieces.length > 0 && (
                     data.pieces.map((rank: ArmorPiece, index: number) => (
                         <div key={index} className="">
-                            <CraftingDisplay itemName={rank.name} crafting={rank.crafting} />
+                            <CraftingDisplay itemName={rank.name} zennyCost={rank.crafting.zennyCost} crafting={rank.crafting.materials} />
                             <Divider />
                         </div>
                     ))

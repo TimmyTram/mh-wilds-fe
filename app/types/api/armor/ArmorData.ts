@@ -1,5 +1,5 @@
 import { SkillRank } from "../skills/SkillData";
-import { BaseCrafting } from "../crafting/Crafting";
+import { CraftingCost } from "../crafting/Crafting";
 
 
 // Basic types
@@ -16,10 +16,10 @@ export interface Defense {
     max: number;
 }
 
-export interface ArmorCrafting extends BaseCrafting {
-    armor: {
-        id: number;
-    };
+export interface ArmorCrafting {
+    id: number;
+    zennyCost: number;
+    materials: CraftingCost[];
 }
 
 

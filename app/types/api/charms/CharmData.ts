@@ -1,10 +1,16 @@
+import { CraftingCost } from '../crafting/Crafting';
 import { SkillRank } from '../skills/SkillData';
-import { BaseCrafting } from '../crafting/Crafting';
 
 export interface CharmSet {
     id: number;
     gameId: number;
     ranks: CharmRank[];
+}
+
+export interface CharmRankCrafting {
+    craftable: boolean;
+    zennyCost: number;
+    materials: CraftingCost[];
 }
 
 export interface CharmRank {
@@ -14,7 +20,7 @@ export interface CharmRank {
     rarity: number;
     skills: SkillRank[];
     description: string;
-    crafting: BaseCrafting;
+    crafting: CharmRankCrafting;
 
     charm?: Charm; // not listed in api docs, but api response differs here
 };

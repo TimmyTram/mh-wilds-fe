@@ -42,7 +42,7 @@ const ResistanceRow = ({ piece, view }: { piece: ArmorPiece; view: "mobile" | "t
             <p className="truncate">{piece.name}</p>
 
             {/* Defense */}
-            <p className="hidden md:block">{piece.defense.base}</p>
+            <p className="hidden md:block">{piece.defense.base} - {piece.defense.max}</p>
 
             {/* Resistances */}
             {view === "mobile" && (

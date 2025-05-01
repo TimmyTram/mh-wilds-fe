@@ -48,8 +48,6 @@ const SlotIcons = ({ slots, size = 24 }: { slots: number[]; size?: number }) => 
 );
 
 const SkillsList = ({ skills }: { skills: SkillRank[] }) => {
-    console.log(skills);
-
     return skills.length > 0 ? (
         <ul className="list-disc list-inside text-xs sm:text-sm">
             {skills.map((skillRank: SkillRank) => (
@@ -103,7 +101,6 @@ const ArmorMobileDetails = ({ piece }: { piece: ArmorPiece }) => (
 );
 
 const SlotsAndSkillsDisplay = ({ pieces }: SlotsAndSkillsDisplayProps) => {
-    console.log(pieces);
     return (
         <div className="w-full overflow-x-auto">
             <div className="min-w-full">
