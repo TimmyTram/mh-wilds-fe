@@ -4,13 +4,17 @@ import { ChargeBlade } from "@/app/types/api/weapons/weaponTypes/Chargeblade";
 import { Gunlance } from "@/app/types/api/weapons/weaponTypes/Gunlance";
 import { HeavyBowgun } from "@/app/types/api/weapons/weaponTypes/Heavybowgun";
 import { LightBowgun } from "@/app/types/api/weapons/weaponTypes/Lightbowgun";
-import BowDisplay from "./Bow/BowDisplay";
-import ChargeBladeDisplay from "./ChargeBlade/ChargeBladeDisplay";
-import GunlanceDisplay from "./Gunlance/GunlanceDisplay";
-import HeavyBowgunDisplay from "./Bowguns/HeavyBowgunDisplay";
-import LightBowgunDisplay from "./Bowguns/LightBowgunDisplay";
-
-
+import { InsectGlaive } from "@/app/types/api/weapons/weaponTypes/InsectGlaive";
+import { SwitchAxe } from "@/app/types/api/weapons/weaponTypes/SwitchAxe";
+import { HuntingHorn } from "@/app/types/api/weapons/weaponTypes/Huntinghorn";
+import BowDisplay from "./WeaponTypes/Bow/BowDisplay";
+import ChargeBladeDisplay from "./WeaponTypes/ChargeBlade/ChargeBladeDisplay";
+import GunlanceDisplay from "./WeaponTypes/Gunlance/GunlanceDisplay";
+import HeavyBowgunDisplay from "./WeaponTypes/Bowguns/HeavyBowgunDisplay";
+import LightBowgunDisplay from "./WeaponTypes/Bowguns/LightBowgunDisplay";
+import InsectGlaiveDisplay from "./WeaponTypes/InsectGlaive/InsectGlaiveDisplay";
+import SwitchAxeDisplay from "./WeaponTypes/SwitchAxe/SwitchAxeDisplay";
+import HuntingHornDisplay from "./WeaponTypes/HuntingHorn/HuntingHornDisplay";
 
 interface WeaponSpecificDisplayProps {
     weapon: Weapon;
@@ -26,7 +30,6 @@ interface WeaponSpecificDisplayProps {
  * Insect Glaive --> Kinsect Level
  */
 const WeaponSpecificDisplay = ({ weapon }: WeaponSpecificDisplayProps) => {
-    // we need some sort of function that looks at weapon.kind and then we know which fields to display
     switch (weapon.kind.toString()) {
         case "bow":
             return <BowDisplay bow={weapon as Bow} />;
@@ -37,13 +40,13 @@ const WeaponSpecificDisplay = ({ weapon }: WeaponSpecificDisplayProps) => {
         case "heavy-bowgun":
             return <HeavyBowgunDisplay heavyBowgun={weapon as HeavyBowgun} />;
         case "hunting-horn":
-            return <div>Hunting Horn</div>;
+            return <HuntingHornDisplay huntingHorn={weapon as HuntingHorn} />;
         case "insect-glaive":
-            return <div>Insect Glaive</div>;
+            return <InsectGlaiveDisplay insectGlaive={weapon as InsectGlaive} />;
         case "light-bowgun":
             return <LightBowgunDisplay lightBowgun={weapon as LightBowgun} />;
         case "switch-axe":
-            return <div>Switch Axe</div>;
+            return <SwitchAxeDisplay switchaxe={weapon as SwitchAxe} />;
         
             // Basic weapons (no special display)
         // These weapons are all the same, so we can just return null or a generic display    

@@ -1,6 +1,6 @@
-import { WeaponDamage } from "../Weapon";
+import { Weapon, WeaponDamage } from "../Weapon";
 
-enum SwitchAxePhial {
+export enum SwitchAxePhial {
     power,
     element,
     dragon,
@@ -9,12 +9,11 @@ enum SwitchAxePhial {
     poison,
 }
 
-interface Phial {
+export interface Phial {
     kind: SwitchAxePhial;
     damage: WeaponDamage;
 }
 
-export interface SwitchAxe {
-    kind: 'switch-axe';
+export interface SwitchAxe extends Weapon {
     phial: Phial;
 }

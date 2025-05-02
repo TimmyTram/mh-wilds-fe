@@ -1,5 +1,5 @@
 import { Bow, BowCoating } from "@/app/types/api/weapons/weaponTypes/Bow";
-import ExtraWeaponInfoDisplay from "@/app/components/MonsterHunter/Weapons/shared/ExtraWeaponInfoDisplay";
+import ExtraWeaponInfoDisplay from "@/app/components/MonsterHunter/Weapons/WeaponTypes/shared/ExtraWeaponInfoDisplay";
 
 interface BowDisplayProps {
     bow: Bow;

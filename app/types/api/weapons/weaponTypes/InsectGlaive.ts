@@ -1,4 +1,5 @@
-export interface InsectGlaive {
-    kind: 'insect-glaive';
+import { Weapon } from "../Weapon";
+
+export interface InsectGlaive extends Weapon {
     kinsectLevel: number;
 }

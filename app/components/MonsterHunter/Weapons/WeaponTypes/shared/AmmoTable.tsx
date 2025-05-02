@@ -2,11 +2,11 @@ import { HeavyBowgunAmmo } from "@/app/types/api/weapons/weaponTypes/Heavybowgun
 import { LightBowgunAmmo } from "@/app/types/api/weapons/weaponTypes/Lightbowgun";
 
 const HeaderLabel = ({ children }: { children: React.ReactNode }) => {
-    return <span className="text-sm md:text-basecol-span-1 text-center font-bold">{children}</span>;
+    return <span className="text-sm sm:text-xs lg:text-base col-span-1 text-center font-bold">{children}</span>;
 }
 
 const Label = ({ children }: { children: React.ReactNode }) => {
-    return <span className="text-sm lg:text-base col-span-1 text-center">{children}</span>;
+    return <span className="text-sm sm:text-xs lg:text-base col-span-1 text-center">{children}</span>;
 }
 
 interface AmmoTableProps {

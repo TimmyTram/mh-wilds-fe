@@ -1,4 +1,6 @@
-enum HuntingHornNote {
+import { Weapon } from '../Weapon';
+
+export enum HuntingHornNote {
     purple,
     red,
     orange,
@@ -9,7 +11,7 @@ enum HuntingHornNote {
     white,
 }
 
-enum HuntingHornBubbleKind {
+export enum HuntingHornBubbleKind {
     evasion = 'Evasion & Movement Speed Up',
     regen = 'Health Regeneration',
     stamina = 'Stamina Regeneration',
@@ -18,7 +20,7 @@ enum HuntingHornBubbleKind {
     immunity = 'Ailments/Blights Negated',
 }
 
-enum HuntingHornWaveKind {
+export enum HuntingHornWaveKind {
     blunt,
     slash,
     fire,
@@ -32,36 +34,35 @@ enum HuntingHornWaveKind {
     blast,
 }
 
-interface HuntingHornSong {
+export interface HuntingHornSong {
     id: number;
     effectId: number;
     sequence: HuntingHornNote[];
     name: string;
 }
 
-interface HuntingHornMelody {
+export interface HuntingHornMelody {
     id: number;
     gameId: number;
     notes: HuntingHornNote[];
     songs: HuntingHornSong[];
 }
 
-interface HuntingHornBubble {
+export interface HuntingHornBubble {
     id: number;
     gameId: number;
     kind: HuntingHornBubbleKind;
     name: string;
 }
 
-interface HuntingHornWave {
+export interface HuntingHornWave {
     id: number;
     gameId: number;
     kind: HuntingHornWaveKind;
     name: string;
 }
 
-export interface HuntingHorn {
-    kind: 'hunting-horn';
+export interface HuntingHorn extends Weapon {
     melody: HuntingHornMelody;
     echoBubble: HuntingHornBubble;
     echoWave: HuntingHornWave;

@@ -5,7 +5,7 @@ import { HeavyBowgun } from "./weaponTypes/Heavybowgun";
 import { HuntingHorn } from "./weaponTypes/Huntinghorn";
 import { InsectGlaive } from "./weaponTypes/InsectGlaive";
 import { LightBowgun } from "./weaponTypes/Lightbowgun";
-import { SwitchAxe } from "./weaponTypes/Switchaxe";
+import { SwitchAxe } from "./weaponTypes/SwitchAxe";
 
 export type WeaponKind =
     | 'bow'
