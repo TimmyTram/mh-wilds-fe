@@ -13,7 +13,7 @@ import Divider from "@/app/components/UI/Divider/Divider";
 import MonsterLocation from "@/app/components/MonsterHunter/Monsters/MonsterLocation";
 import MonsterResistancesChart from "@/app/components/MonsterHunter/Monsters/MonsterResistancesChart";
 import Loading from "@/app/components/UI/Loading/Loading";
-
+import Error from "@/app/components/UI/Error/Error";
 
 const Page = () => {
     const { id } = useParams();
@@ -25,13 +25,13 @@ const Page = () => {
     }
 
     if (!data) {
-        return <p>No data found.</p>;
+        return <Error />;
     }
 
     return (
         <div className="flex flex-col items-center justify-center">
             {loading && <Loading />}
-            {error && <p>Error fetching data.</p>}
+            {error && <Error />}
 
             <div className="grid grid-cols-8 gap-4">
                 <div className="col-span-8">

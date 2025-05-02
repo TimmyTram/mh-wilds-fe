@@ -1,6 +1,7 @@
 'use client';
 
 import ArmorCard from "@/app/components/MonsterHunter/Armor/ArmorCard";
+import Error from "@/app/components/UI/Error/Error";
 import Loading from "@/app/components/UI/Loading/Loading";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
@@ -21,7 +22,7 @@ const Page = () => {
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Armor Sets</h1>
             {loading && <Loading />}
-            {error && <p>Error fetching data.</p>}
+            {error && <Error />}
 
             {data && data.length > 0 && (
                 <div className="flex flex-wrap gap-4">

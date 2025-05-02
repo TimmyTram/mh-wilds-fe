@@ -6,6 +6,7 @@ import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { Skill, SkillRank } from "@/app/types/api/skills/SkillData";
 import Image from 'next/image';
 import Loading from "@/app/components/UI/Loading/Loading";
+import Error from "@/app/components/UI/Error/Error";
 
 
 const SkillRanksDisplay = ({ skills }: { skills: SkillRank[] }) => {
@@ -24,7 +25,7 @@ const SkillRanksDisplay = ({ skills }: { skills: SkillRank[] }) => {
 const Page = () => {
     const { id } = useParams();
     const { language, isLanguageLoaded } = useLanguageContext();
-    const { data, error, loading } = useFetchSingleMhData<Skill>('skills', String(id), language)
+    const { data, loading } = useFetchSingleMhData<Skill>('skills', String(id), language)
 
     if (!isLanguageLoaded) return <Loading />;
 
@@ -58,10 +59,7 @@ const Page = () => {
                     </div>
                 </div>
             ) : (
-                <div className="p-4">
-                    <h1 className="text-2xl font-bold">Error</h1>
-                    <p>{error}</p>
-                </div>
+                <Error />
             )}
         </>
     );

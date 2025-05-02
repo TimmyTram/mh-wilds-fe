@@ -8,6 +8,7 @@ import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { Item } from "@/app/types/api/items/ItemData";
 import { useParams } from "next/navigation";
 import Loading from "@/app/components/UI/Loading/Loading";
+import Error from "@/app/components/UI/Error/Error";
 
 
 const Page = () => {
@@ -24,11 +25,7 @@ const Page = () => {
     }
 
     if (error) {
-        return (
-            <div className="flex flex-col items-center justify-center">
-                <p>Error: {error}</p>
-            </div>
-        );
+        return <Error />
     }
 
     return (

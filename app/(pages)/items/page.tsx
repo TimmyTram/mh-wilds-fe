@@ -7,6 +7,7 @@ import { Item } from '@/app/types/api/items/ItemData';
 import Searchbar from '@/app/components/UI/Searchbar/Searchbar';
 import ItemList from '@/app/components/MonsterHunter/Items/ItemList';
 import Loading from '@/app/components/UI/Loading/Loading';
+import Error from '@/app/components/UI/Error/Error';
 
 const Page = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -37,7 +38,7 @@ const Page = () => {
     }, []);
 
     if (!isLanguageLoaded) {
-        return <p>Loading language...</p>;
+        return <Loading />;
     }
 
     return (
@@ -48,7 +49,7 @@ const Page = () => {
 
             {loading && <Loading />}
 
-            {error && <p className="text-center text-red-500">Error fetching data.</p>}
+            {error && <Error />}
 
             {data && data.length > 0 ? (
                 <ItemList items={filteredItems} />

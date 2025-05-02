@@ -6,6 +6,7 @@ import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { Decoration } from "@/app/types/api/decorations/Decorations";
 import { sortByName } from "@/app/utils/utils";
 import Loading from "@/app/components/UI/Loading/Loading";
+import Error from "@/app/components/UI/Error/Error";
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
@@ -17,7 +18,7 @@ const Page = () => {
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Decorations</h1>
             {loading && <Loading />}
-            {error && <p>Error fetching data.</p>}
+            {error && <Error />}
 
             {data && data.length > 0 && (
                 <div className="flex flex-wrap gap-4">

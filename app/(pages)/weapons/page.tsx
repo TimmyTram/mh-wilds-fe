@@ -7,6 +7,7 @@ import { useState } from "react";
 import WeaponToggle from "@/app/components/MonsterHunter/Weapons/WeaponToggle";
 import WeaponTable from "@/app/components/MonsterHunter/Weapons/WeaponTable";
 import Loading from "@/app/components/UI/Loading/Loading";
+import Error from "@/app/components/UI/Error/Error";
 
 const Page = () => {
     const [kind, setKind] = useState("great-sword");
@@ -32,7 +33,7 @@ const Page = () => {
     );
 
     if (loading) return <Loading />;
-    if (error) return <div>Error: {error}</div>;
+    if (error) return <Error />;
 
     return (
         <div>

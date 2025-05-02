@@ -11,6 +11,7 @@ import ArmorResistanceDisplay from "@/app/components/MonsterHunter/Armor/ArmorRe
 import ArmorGroupBonus from "@/app/components/MonsterHunter/Armor/ArmorGroupBonus";
 import CraftingDisplay from "@/app/components/MonsterHunter/Crafting/CraftingDisplay";
 import Loading from "@/app/components/UI/Loading/Loading";
+import Error from "@/app/components/UI/Error/Error";
 
 const Page = () => {
     const { id } = useParams();
@@ -24,7 +25,7 @@ const Page = () => {
     return (
         <div className="flex flex-col items-center justify-center">
             {loading && <Loading />}
-            {error && <p>Error fetching data.</p>}
+            {error && <Error />}
 
             <div>
 

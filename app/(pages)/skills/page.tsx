@@ -6,6 +6,7 @@ import { Skill } from "@/app/types/api/skills/SkillData";
 import { sortByName } from "@/app/utils/utils";
 import SkillCard from "@/app/components/MonsterHunter/Skills/SkillsCard";
 import Loading from "@/app/components/UI/Loading/Loading";
+import Error from "@/app/components/UI/Error/Error";
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
@@ -23,7 +24,7 @@ const Page = () => {
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Skills</h1>
             {loading && <Loading />}
-            {error && <p>Error fetching data.</p>}
+            {error && <Error />}
             <div className="flex flex-wrap gap-4">
                 {sortedData.map((skill: Skill) => (
                     <SkillCard key={skill.id} id={skill.id} name={skill.name} icon={skill.icon} />

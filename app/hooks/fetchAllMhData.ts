@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 const API_URL = "https://wilds.mhdb.io/";
 
+
 const useFetchAllMhData = <T>(endpoint: string, language?: string) => {
     const [data, setData] = useState<T[]>([]);
     const [loading, setLoading] = useState(true);

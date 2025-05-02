@@ -6,6 +6,7 @@ import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { CharmSet } from "@/app/types/api/charms/CharmData";
 import { sortByName } from "@/app/utils/utils";
+import Error from "@/app/components/UI/Error/Error";
 
 
 const Page = () => {
@@ -26,7 +27,7 @@ const Page = () => {
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Charms</h1>
             {loading && <Loading />}
-            {error && <p>Error fetching data.</p>}
+            {error && <Error />}
 
             {data && data.length > 0 && (
                 <div className="flex flex-wrap gap-4">

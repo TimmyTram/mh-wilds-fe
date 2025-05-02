@@ -13,6 +13,7 @@ import WeaponMaterialsDisplay from "@/app/components/MonsterHunter/Weapons/Weapo
 import WeaponSpecificDisplay from "@/app/components/MonsterHunter/Weapons/WeaponSpecificDisplay";
 import Divider from "@/app/components/UI/Divider/Divider";
 import Loading from "@/app/components/UI/Loading/Loading";
+import Error from "@/app/components/UI/Error/Error";
 
 const Page = () => {
     const { id } = useParams();
@@ -21,9 +22,7 @@ const Page = () => {
 
     if (!isLanguageLoaded) return <Loading />;
     if (loading) return <Loading />;
-    if (error) return <div>Error: {error}</div>;
-
-    console.log(data);
+    if (error) return <Error />;
 
     return data ? (
         <div className="container mx-auto p-4">

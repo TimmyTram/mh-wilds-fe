@@ -7,8 +7,7 @@ import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { Decoration } from "@/app/types/api/decorations/Decorations";
 import { useParams } from "next/navigation";
-
-
+import Error from "@/app/components/UI/Error/Error";
 
 const Page = () => {
     const { id } = useParams();
@@ -24,7 +23,7 @@ const Page = () => {
     }
 
     if (error) {
-        return <p>Error: {error}</p>;
+        return <Error />;
     }
     
     return (

@@ -9,6 +9,7 @@ import CraftingDisplay from "@/app/components/MonsterHunter/Crafting/CraftingDis
 import { useIsMobile } from "@/app/hooks/frontend/useIsMobile";
 import { SkillRank } from "@/app/types/api/skills/SkillData";
 import Loading from "@/app/components/UI/Loading/Loading";
+import Error from "@/app/components/UI/Error/Error";
 
 const CharmHeader = () => (
     <div className="hidden md:grid grid-cols-4 gap-4 mb-2 font-semibold text-base md:text-lg">
@@ -71,7 +72,7 @@ const Page = () => {
     return (
         <div className="w-full px-4 md:px-8 py-4 overflow-x-auto">
             {loading && <Loading />}
-            {error && <p className="mb-4">Error fetching data.</p>}
+            {error && <Error />}
 
             <div className="min-w-full">
                 {!isMobile && <CharmHeader />}
