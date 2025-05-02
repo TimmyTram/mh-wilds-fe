@@ -5,13 +5,14 @@ import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { Skill } from "@/app/types/api/skills/SkillData";
 import { sortByName } from "@/app/utils/utils";
 import SkillCard from "@/app/components/MonsterHunter/Skills/SkillsCard";
+import Loading from "@/app/components/UI/Loading/Loading";
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
     const { data, loading, error } = useFetchAllMhData<Skill>(`skills?p={"id": true, "name": true, "icon": true}`, isLanguageLoaded ? language : undefined);
 
     if (!isLanguageLoaded) {
-        return <p>Loading language...</p>;
+        return <Loading />;
     }
 
     const sortedData = data ? sortByName(data, language, item => item.name) : [];
@@ -21,7 +22,7 @@ const Page = () => {
     return (
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Skills</h1>
-            {loading && <p>Loading...</p>}
+            {loading && <Loading />}
             {error && <p>Error fetching data.</p>}
             <div className="flex flex-wrap gap-4">
                 {sortedData.map((skill: Skill) => (

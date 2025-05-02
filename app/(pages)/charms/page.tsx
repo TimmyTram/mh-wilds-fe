@@ -1,10 +1,12 @@
 'use client';
 
 import CharmCard from "@/app/components/MonsterHunter/Charms/CharmCard";
+import Loading from "@/app/components/UI/Loading/Loading";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { CharmSet } from "@/app/types/api/charms/CharmData";
 import { sortByName } from "@/app/utils/utils";
+
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
@@ -15,7 +17,7 @@ const Page = () => {
 
 
     if (!isLanguageLoaded) {
-        return <p>Loading language...</p>;
+        return <Loading />;
     }
 
     const sortedData = data ? sortByName(data, language, item => item.ranks[0]?.name) : [];
@@ -23,7 +25,7 @@ const Page = () => {
     return (
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Charms</h1>
-            {loading && <p>Loading...</p>}
+            {loading && <Loading />}
             {error && <p>Error fetching data.</p>}
 
             {data && data.length > 0 && (

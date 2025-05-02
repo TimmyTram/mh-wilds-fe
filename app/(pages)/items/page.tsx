@@ -6,6 +6,7 @@ import { useLanguageContext } from '@/app/Context/LanguageProvider';
 import { Item } from '@/app/types/api/items/ItemData';
 import Searchbar from '@/app/components/UI/Searchbar/Searchbar';
 import ItemList from '@/app/components/MonsterHunter/Items/ItemList';
+import Loading from '@/app/components/UI/Loading/Loading';
 
 const Page = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -45,7 +46,7 @@ const Page = () => {
 
             <h1 className="flex justify-center items-center text-4xl pb-6 sm:pb-10">Items</h1>
 
-            {loading && <p className="text-center">Loading...</p>}
+            {loading && <Loading />}
 
             {error && <p className="text-center text-red-500">Error fetching data.</p>}
 

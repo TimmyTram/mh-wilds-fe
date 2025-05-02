@@ -5,6 +5,7 @@ import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { Decoration } from "@/app/types/api/decorations/Decorations";
 import { sortByName } from "@/app/utils/utils";
+import Loading from "@/app/components/UI/Loading/Loading";
 
 const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
@@ -15,7 +16,7 @@ const Page = () => {
     return (
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Decorations</h1>
-            {loading && <p>Loading...</p>}
+            {loading && <Loading />}
             {error && <p>Error fetching data.</p>}
 
             {data && data.length > 0 && (

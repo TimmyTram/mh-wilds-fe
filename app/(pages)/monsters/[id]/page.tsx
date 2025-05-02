@@ -12,6 +12,7 @@ import MonsterSizes from "@/app/components/MonsterHunter/Monsters/MonsterSizes";
 import Divider from "@/app/components/UI/Divider/Divider";
 import MonsterLocation from "@/app/components/MonsterHunter/Monsters/MonsterLocation";
 import MonsterResistancesChart from "@/app/components/MonsterHunter/Monsters/MonsterResistancesChart";
+import Loading from "@/app/components/UI/Loading/Loading";
 
 
 const Page = () => {
@@ -20,7 +21,7 @@ const Page = () => {
     const { data, error, loading } = useFetchSingleMhData<Monster>('monsters', String(id), language)
 
     if (!isLanguageLoaded) {
-        return <p>Loading language...</p>;
+        return <Loading />;
     }
 
     if (!data) {
@@ -29,7 +30,7 @@ const Page = () => {
 
     return (
         <div className="flex flex-col items-center justify-center">
-            {loading && <p>Loading...</p>}
+            {loading && <Loading />}
             {error && <p>Error fetching data.</p>}
 
             <div className="grid grid-cols-8 gap-4">

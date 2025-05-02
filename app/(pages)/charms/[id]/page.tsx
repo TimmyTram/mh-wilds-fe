@@ -8,6 +8,7 @@ import { CharmRank, CharmSet } from "@/app/types/api/charms/CharmData";
 import CraftingDisplay from "@/app/components/MonsterHunter/Crafting/CraftingDisplay";
 import { useIsMobile } from "@/app/hooks/frontend/useIsMobile";
 import { SkillRank } from "@/app/types/api/skills/SkillData";
+import Loading from "@/app/components/UI/Loading/Loading";
 
 const CharmHeader = () => (
     <div className="hidden md:grid grid-cols-4 gap-4 mb-2 font-semibold text-base md:text-lg">
@@ -65,11 +66,11 @@ const Page = () => {
     const { data, error, loading } = useFetchSingleMhData<CharmSet>('charms', String(id), language);
     const isMobile = useIsMobile(768);
 
-    if (!isLanguageLoaded) return <p className="p-4">Loading language...</p>;
+    if (!isLanguageLoaded) return <Loading />;
 
     return (
         <div className="w-full px-4 md:px-8 py-4 overflow-x-auto">
-            {loading && <p className="mb-4">Loading...</p>}
+            {loading && <Loading />}
             {error && <p className="mb-4">Error fetching data.</p>}
 
             <div className="min-w-full">

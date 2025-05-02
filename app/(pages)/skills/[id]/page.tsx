@@ -5,6 +5,7 @@ import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { Skill, SkillRank } from "@/app/types/api/skills/SkillData";
 import Image from 'next/image';
+import Loading from "@/app/components/UI/Loading/Loading";
 
 
 const SkillRanksDisplay = ({ skills }: { skills: SkillRank[] }) => {
@@ -25,11 +26,10 @@ const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
     const { data, error, loading } = useFetchSingleMhData<Skill>('skills', String(id), language)
 
-    if (!isLanguageLoaded) return <p className="p-4">Loading language...</p>;
+    if (!isLanguageLoaded) return <Loading />;
 
-    console.log(data);
 
-    if (loading) return <p className="p-4">Loading...</p>;
+    if (loading) return <Loading />;
 
     return (
         <>

@@ -10,6 +10,7 @@ import SlotsAndSkillsDisplay from "@/app/components/MonsterHunter/Armor/SlotsAnd
 import ArmorResistanceDisplay from "@/app/components/MonsterHunter/Armor/ArmorResistancesDisplay";
 import ArmorGroupBonus from "@/app/components/MonsterHunter/Armor/ArmorGroupBonus";
 import CraftingDisplay from "@/app/components/MonsterHunter/Crafting/CraftingDisplay";
+import Loading from "@/app/components/UI/Loading/Loading";
 
 const Page = () => {
     const { id } = useParams();
@@ -17,12 +18,12 @@ const Page = () => {
     const { data, error, loading } = useFetchSingleMhData<ArmorSet>('armor/sets', String(id), language)
 
     if (!isLanguageLoaded) {
-        return <p>Loading language...</p>;
+        return <Loading />;
     }
 
     return (
         <div className="flex flex-col items-center justify-center">
-            {loading && <p>Loading...</p>}
+            {loading && <Loading />}
             {error && <p>Error fetching data.</p>}
 
             <div>

@@ -7,6 +7,7 @@ import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { Item } from "@/app/types/api/items/ItemData";
 import { useParams } from "next/navigation";
+import Loading from "@/app/components/UI/Loading/Loading";
 
 
 const Page = () => {
@@ -15,7 +16,19 @@ const Page = () => {
     const { data, loading, error } = useFetchSingleMhData<Item>('items', String(id), language);
 
     if (!isLanguageLoaded) {
-        return <p>Loading language...</p>;
+        return <Loading />;
+    }
+
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error) {
+        return (
+            <div className="flex flex-col items-center justify-center">
+                <p>Error: {error}</p>
+            </div>
+        );
     }
 
     return (

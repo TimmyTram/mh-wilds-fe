@@ -1,6 +1,7 @@
 'use client';
 
 import ArmorCard from "@/app/components/MonsterHunter/Armor/ArmorCard";
+import Loading from "@/app/components/UI/Loading/Loading";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchAllMhData from "@/app/hooks/fetchAllMhData";
 import { ArmorSet } from "@/app/types/api/armor/ArmorData";
@@ -11,7 +12,7 @@ const Page = () => {
     const { data, loading, error } = useFetchAllMhData<ArmorSet>(`armor/sets?p={"id": true, "name": true, "gameId": true, "pieces": true}`, isLanguageLoaded ? language : undefined);
 
     if (!isLanguageLoaded) {
-        return <p>Loading language...</p>;
+        return <Loading />;
     }
 
     const sortedData = data ? sortByName(data, language, item => item.name) : [];
@@ -19,7 +20,7 @@ const Page = () => {
     return (
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Armor Sets</h1>
-            {loading && <p>Loading...</p>}
+            {loading && <Loading />}
             {error && <p>Error fetching data.</p>}
 
             {data && data.length > 0 && (

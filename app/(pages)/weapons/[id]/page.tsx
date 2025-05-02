@@ -12,14 +12,15 @@ import WeaponDescription from "@/app/components/MonsterHunter/Weapons/WeaponDesc
 import WeaponMaterialsDisplay from "@/app/components/MonsterHunter/Weapons/WeaponMaterialDisplay";
 import WeaponSpecificDisplay from "@/app/components/MonsterHunter/Weapons/WeaponSpecificDisplay";
 import Divider from "@/app/components/UI/Divider/Divider";
+import Loading from "@/app/components/UI/Loading/Loading";
 
 const Page = () => {
     const { id } = useParams();
     const { language, isLanguageLoaded } = useLanguageContext();
     const { data, loading, error } = useFetchSingleMhData<Weapon>('weapons', String(id), language);
 
-    if (!isLanguageLoaded) return <div>Loading Langauge...</div>;
-    if (loading) return <div>Loading...</div>;
+    if (!isLanguageLoaded) return <Loading />;
+    if (loading) return <Loading />;
     if (error) return <div>Error: {error}</div>;
 
     console.log(data);

@@ -2,10 +2,12 @@
 
 import DecorationHeader from "@/app/components/MonsterHunter/Decorations/DecorationHeader";
 import DecorationInfo from "@/app/components/MonsterHunter/Decorations/DecorationInfo";
+import Loading from "@/app/components/UI/Loading/Loading";
 import { useLanguageContext } from "@/app/Context/LanguageProvider";
 import useFetchSingleMhData from "@/app/hooks/fetchSingleMhData";
 import { Decoration } from "@/app/types/api/decorations/Decorations";
 import { useParams } from "next/navigation";
+
 
 
 const Page = () => {
@@ -14,11 +16,11 @@ const Page = () => {
     const { data, loading, error } = useFetchSingleMhData<Decoration>('decorations', String(id), isLanguageLoaded ? language : undefined);
 
     if (!isLanguageLoaded) {
-        return <p>Loading language...</p>;
+        return <Loading />;
     }
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <Loading />;
     }
 
     if (error) {
