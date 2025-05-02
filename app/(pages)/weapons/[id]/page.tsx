@@ -10,12 +10,15 @@ import WeaponStats from "@/app/components/MonsterHunter/Weapons/WeaponStats";
 import WeaponSkill from "@/app/components/MonsterHunter/Weapons/WeaponSkill";
 import WeaponDescription from "@/app/components/MonsterHunter/Weapons/WeaponDescription";
 import WeaponMaterialsDisplay from "@/app/components/MonsterHunter/Weapons/WeaponMaterialDisplay";
+import WeaponSpecificDisplay from "@/app/components/MonsterHunter/Weapons/WeaponSpecificDisplay";
+import Divider from "@/app/components/UI/Divider/Divider";
 
 const Page = () => {
     const { id } = useParams();
     const { language, isLanguageLoaded } = useLanguageContext();
     const { data, loading, error } = useFetchSingleMhData<Weapon>('weapons', String(id), language);
 
+    if (!isLanguageLoaded) return <div>Loading Langauge...</div>;
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
@@ -32,6 +35,8 @@ const Page = () => {
                         rarity={data.rarity}
                     />
                     <WeaponDescription description={data.description} />
+                    <Divider />
+                    <WeaponSpecificDisplay weapon={data} />
                 </div>
 
                 <div className="flex flex-col space-y-6 p-4 md:p-6 bg-card rounded-lg shadow-lg">

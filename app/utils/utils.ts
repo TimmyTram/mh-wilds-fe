@@ -3,7 +3,7 @@ import { RewardConditionKind, Species } from "../types/api/monsters/MonsterData"
 import { locationsMap, MonsterSpeciesMap, RewardConditionDisplayMap } from "../constants/Associations/Associations";
 import { MonsterResistances } from "../types/api/monsters/MonsterResistances";
 import { MonsterWeakness } from "../types/api/monsters/MonsterWeakness";
-import { WeaponSpecial, WeaponSpecialBase, WeaponSpecialElement, WeaponSpecialStatus } from "../types/api/weapons/Weapon";
+import { WeaponSpecialElement, WeaponSpecialStatus } from "../types/api/weapons/Weapon";
 
 /**
  * 

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Sharpness } from "@/app/types/api/weapons/Weapon";
+import { capitalize } from "@/app/utils/utils";
 
 interface SharpnessDisplayProps {
     sharpness: Sharpness;
@@ -59,7 +60,7 @@ const SharpnessDisplay = ({ sharpness, width }: SharpnessDisplayProps) => {
                 <div className="absolute mt-6 text-sm bg-black text-white px-2 py-1 rounded shadow-lg z-10">
                     {Object.entries(sharpness).map(([key, value]) => (
                         <div key={key} className="flex items-center gap-1">
-                            <span className="font-bold">{key.charAt(0).toUpperCase() + key.slice(1)}:</span>
+                            <span className="font-bold">{capitalize(key)}:</span>
                             <span>{value} Hits</span>
                         </div>
                     ))}

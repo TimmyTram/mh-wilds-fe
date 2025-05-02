@@ -1,4 +1,4 @@
-import { WeaponDamage } from "./Weapon";
+import { WeaponDamage } from "../Weapon";
 
 enum SwitchAxePhial {
     power,

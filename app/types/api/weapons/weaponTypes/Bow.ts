@@ -1,4 +1,6 @@
-enum BowCoating {
+import { Weapon } from '../Weapon';
+
+export enum BowCoating {
     close_range = 'close-range',
     power = 'power',
     pierce = 'pierce',
@@ -9,7 +11,6 @@ enum BowCoating {
     exhaust = 'exhaust',
 }
 
-export interface Bow {
-    kind: 'bow';
+export interface Bow extends Weapon {
     coatings: BowCoating[];
 }

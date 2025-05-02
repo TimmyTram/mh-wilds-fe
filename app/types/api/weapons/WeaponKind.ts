@@ -1,11 +1,11 @@
-import { Bow } from "./Bow";
-import { ChargeBlade } from "./Chargeblade";
-import { Gunlance } from "./Gunlance";
-import { HeavyBowgun } from "./Heavybowgun";
-import { HuntingHorn } from "./Huntinghorn";
-import { InsectGlaive } from "./InsectGlaive";
-import { LightBowgun } from "./Lightbowgun";
-import { SwitchAxe } from "./Switchaxe";
+import { Bow } from "./weaponTypes/Bow";
+import { ChargeBlade } from "./weaponTypes/Chargeblade";
+import { Gunlance } from "./weaponTypes/Gunlance";
+import { HeavyBowgun } from "./weaponTypes/Heavybowgun";
+import { HuntingHorn } from "./weaponTypes/Huntinghorn";
+import { InsectGlaive } from "./weaponTypes/InsectGlaive";
+import { LightBowgun } from "./weaponTypes/Lightbowgun";
+import { SwitchAxe } from "./weaponTypes/Switchaxe";
 
 export type WeaponKind =
     | 'bow'
