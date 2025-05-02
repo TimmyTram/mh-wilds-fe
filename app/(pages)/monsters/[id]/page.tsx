@@ -24,15 +24,20 @@ const Page = () => {
         return <Loading />;
     }
 
-    if (!data) {
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error) {
         return <Error />;
+    }
+
+    if (!data) {
+        return null;
     }
 
     return (
         <div className="flex flex-col items-center justify-center">
-            {loading && <Loading />}
-            {error && <Error />}
-
             <div className="grid grid-cols-8 gap-4">
                 <div className="col-span-8">
                     <MonsterHeader monster={data} imgWidth={256} imgHeight={256} imgClassName={"rounded-xl"} />

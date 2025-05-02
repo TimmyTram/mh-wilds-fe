@@ -24,7 +24,17 @@ const Page = () => {
     if (loading) return <Loading />;
     if (error) return <Error />;
 
-    return data ? (
+    if (!data) {
+        return (
+            <div className="container mx-auto flex items-center justify-center p-8">
+                <div className="text-center p-8 border-4 rounded-lg">
+                    <h1 className="text-2xl font-bold">Weapon not found</h1>
+                </div>
+            </div>
+        );
+    };
+
+    return (
         <div className="container mx-auto p-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="p-4 md:p-6 bg-card rounded-lg shadow-lg flex flex-col">
@@ -65,14 +75,8 @@ const Page = () => {
                     <WeaponSkill skills={data.skills} />
                 </div>
             </div>
-            
+
             <WeaponMaterialsDisplay crafting={data.crafting} />
-        </div>
-    ) : (
-        <div className="container mx-auto flex items-center justify-center p-8">
-            <div className="text-center p-8 border-4 rounded-lg">
-                <h1 className="text-2xl font-bold">Weapon not found</h1>
-            </div>
         </div>
     );
 }

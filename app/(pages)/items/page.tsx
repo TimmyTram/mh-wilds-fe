@@ -41,16 +41,19 @@ const Page = () => {
         return <Loading />;
     }
 
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error) {
+        return <Error />;
+    }
+
     return (
         <div className="px-4 sm:px-8 md:px-16 lg:px-32 py-4">
             <Searchbar value={searchTerm} onChange={handleSearchChange} />
 
             <h1 className="flex justify-center items-center text-4xl pb-6 sm:pb-10">Items</h1>
-
-            {loading && <Loading />}
-
-            {error && <Error />}
-
             {data && data.length > 0 ? (
                 <ItemList items={filteredItems} />
             ) : (

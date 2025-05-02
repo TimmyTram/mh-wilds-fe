@@ -12,14 +12,19 @@ const Page = () => {
     const { language, isLanguageLoaded } = useLanguageContext();
     const { data, loading, error } = useFetchAllMhData<Decoration>(`decorations?p={"id": true, "name": true, "slot": true}`, isLanguageLoaded ? language : undefined);
 
+    if (!isLanguageLoaded || loading) {
+        return <Loading />;
+    }
+    
+    if (error) {
+        return <Error />;
+    }
+
     const sortedData = data ? sortByName(data, language, item => item.name) : [];
 
     return (
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Decorations</h1>
-            {loading && <Loading />}
-            {error && <Error />}
-
             {data && data.length > 0 && (
                 <div className="flex flex-wrap gap-4">
                     {sortedData.map((decoration: Decoration) => (

@@ -22,13 +22,17 @@ const Page = () => {
         return <Loading />;
     }
 
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error) {
+        return <Error />;
+    }
+
     return (
         <div className="flex flex-col items-center justify-center">
-            {loading && <Loading />}
-            {error && <Error />}
-
             <div>
-
                 {data && data.name && (
                     <div className="flex flex-col items-start justify-start mb-4">
                         <h2 className="text-4xl text-left">{data.name}</h2>

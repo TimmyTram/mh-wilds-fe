@@ -16,15 +16,19 @@ const Page = () => {
         return <Loading />;
     }
 
-    const sortedData = data ? sortByName(data, language, item => item.name) : [];
+    if (loading) {
+        return <Loading />;
+    }
 
-    console.log(sortedData);
+    if (error) {
+        return <Error />;
+    }
+
+    const sortedData = data ? sortByName(data, language, item => item.name) : [];
 
     return (
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Skills</h1>
-            {loading && <Loading />}
-            {error && <Error />}
             <div className="flex flex-wrap gap-4">
                 {sortedData.map((skill: Skill) => (
                     <SkillCard key={skill.id} id={skill.id} name={skill.name} icon={skill.icon} />

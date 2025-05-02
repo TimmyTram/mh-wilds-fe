@@ -21,14 +21,19 @@ const Page = () => {
         return <Loading />;
     }
 
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error) {
+        return <Error />;
+    }
+
     const sortedData = data ? sortByName(data, language, item => item.ranks[0]?.name) : [];
 
     return (
         <div className="px-32 py-4">
             <h1 className="flex justify-center items-center text-4xl pb-10">Charms</h1>
-            {loading && <Loading />}
-            {error && <Error />}
-
             {data && data.length > 0 && (
                 <div className="flex flex-wrap gap-4">
                     {sortedData.map((charmSet: CharmSet) => (

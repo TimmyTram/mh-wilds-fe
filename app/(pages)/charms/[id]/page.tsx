@@ -69,10 +69,11 @@ const Page = () => {
 
     if (!isLanguageLoaded) return <Loading />;
 
+    if (loading) return <Loading />;
+    if (error) return <Error />;
+
     return (
         <div className="w-full px-4 md:px-8 py-4 overflow-x-auto">
-            {loading && <Loading />}
-            {error && <Error />}
 
             <div className="min-w-full">
                 {!isMobile && <CharmHeader />}
