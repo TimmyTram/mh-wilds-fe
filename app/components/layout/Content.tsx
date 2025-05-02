@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Sidebar from "../UI/Sidebar/Sidebar";
 import Navbar from "../UI/Navbar/Navbar";
 import { useIsMobile } from "@/app/hooks/frontend/useIsMobile"; 
+import Footer from "../UI/Footer/Footer";
 
 interface ContentProps {
     children: React.ReactNode;
@@ -22,7 +23,7 @@ const Content = ({ children }: ContentProps) => {
     }, [isMobile]);
 
     return (
-        <>
+        <main className="flex flex-col min-h-screen">
             <Navbar toggleSidebar={() => setShowSidebar(!showSidebar)} />
             
             {/* Mobile Sidebar (Overlay) */}
@@ -42,7 +43,7 @@ const Content = ({ children }: ContentProps) => {
             )}
             
             {/* Main Content Grid */}
-            <div className="grid grid-cols-8 gap-4 p-4">
+            <div className="grid grid-cols-8 gap-4 p-4 flex-1">
                 {/* Desktop Sidebar (Part of Grid) */}
                 {!isMobile && showSidebar && (
                     <div className="col-span-3 md:col-span-2 lg:col-span-1">
@@ -55,7 +56,9 @@ const Content = ({ children }: ContentProps) => {
                     {children}
                 </div>
             </div>
-        </>
+
+            <Footer />
+        </main>
     );
 }
 
