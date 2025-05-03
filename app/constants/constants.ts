@@ -39,3 +39,13 @@ export const helpfulLinks = new Map([
     ["Event Schedule", "https://info.monsterhunter.com/wilds/event-quest/en-us/schedule"],
     ["Monster Hunter Wilds Endgame Build Compilation", "https://www.reddit.com/r/MonsterHunterMeta/comments/1jkaxo7/mhwilds_endgame_meta_builds_compilation/"],
 ]);
+
+// for carousel images
+// key = locationName, value = imageUrl
+export const carouselImagesMap = new Map([
+    ["Windward Plains", "/assets/Locations/windward_plains.png"],
+    ["Scarlet Forest", "/assets/Locations/scarlet_forest.png"],
+    ["Oilwell Basin", "/assets/Locations/oilwell_basin.png"],
+    ["Iceshard Cliffs", "/assets/Locations/iceshard_cliffs.png"],
+    ["Wyveria", "/assets/Locations/wyveria.png"],
+]);

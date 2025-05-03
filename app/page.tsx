@@ -2,14 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { wikiText } from "./constants/constants";
 import { helpfulLinks } from "./constants/constants";
+import LocationCarousel from "./components/Home/LocationCarousel";
+import { carouselImagesMap } from "./constants/constants";
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center p-4 md:p-24">
-      <div className="flex flex-col items-center gap-8">
+      <div className="flex flex-col items-center gap-8 max-w-full">
 
         {/* Header */}
-        <h1 className="text-4xl md:text-6xl font-bold">
+        <h1 className="text-4xl md:text-6xl font-bold text-center">
           Welcome to the {" "}
           <span className="italic bg-gradient-to-r from-wildsLight to-wildsDark text-transparent bg-clip-text">
             Monster Hunter Wilds Wiki
@@ -20,20 +22,20 @@ export default function Home() {
         <div className="flex flex-col md:flex-row gap-4 mt-4 w-full">
 
           {/* LOGO */}
-          <div className="w-full md:w-1/2 bg-card rounded-lg shadow-lg flex items-center justify-center p-10">
+          <div className="w-full md:w-1/2 bg-card rounded-lg shadow-lg flex items-center justify-center p-6 md:p-10">
             <Image
               src={`/logo.webp`}
               alt="Logo"
               width={300}
               height={300}
-              className="rounded-lg"
+              className="rounded-lg max-w-full h-auto"
               priority
             />
           </div>
 
           {/* ABOUT WIKI */}
           <div className="w-full md:w-1/2 bg-card rounded-lg shadow-lg">
-            <div className="p-10 flex flex-col gap-4">
+            <div className="p-6 md:p-10 flex flex-col gap-4">
 
               {/* About the Wiki */}
               <div>
@@ -67,10 +69,19 @@ export default function Home() {
           </div>
         </div>
         
-        {/* <div className="w-full flex flex-col items-center border-4 bg-card rounded-lg shadow-lg p-10">
-                  
-        </div> */}
+        {/* Second row with carousel and buy section */}
+        <div className="flex flex-col md:flex-row gap-4 mt-4 w-full">
+          {/* Location Carousel container with proper containment */}
+          <div className="w-full md:w-1/2 bg-card rounded-lg shadow-lg overflow-hidden">
+            <div className="p-4 md:p-6 w-full">
+              <LocationCarousel slides={carouselImagesMap} options={{ loop: true }} />
+            </div>
+          </div>
 
+          <div className="w-full md:w-1/2 bg-card rounded-lg shadow-lg flex items-center justify-center p-10">
+                    Placeholder
+          </div>
+        </div>
       </div>
     </div>
   );
