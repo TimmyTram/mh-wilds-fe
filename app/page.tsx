@@ -4,6 +4,7 @@ import { wikiText } from "./constants/constants";
 import { helpfulLinks } from "./constants/constants";
 import LocationCarousel from "./components/Home/LocationCarousel";
 import { carouselImagesMap } from "./constants/constants";
+import PlatformListing from "./components/Home/PlatformsListing";
 
 export default function Home() {
   return (
@@ -68,7 +69,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+
         {/* Second row with carousel and buy section */}
         <div className="flex flex-col md:flex-row gap-4 mt-4 w-full">
           {/* Location Carousel container with proper containment */}
@@ -78,8 +79,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 bg-card rounded-lg shadow-lg flex items-center justify-center p-10">
-                    Placeholder
+          <div className="w-full md:w-1/2 bg-card rounded-lg shadow-lg flex flex-col p-6 md:p-10">
+            <h2 className="text-2xl font-bold mb-4">Platforms</h2>
+            <PlatformListing className="flex flex-row items-center justify-between p-10" />
           </div>
         </div>
       </div>
