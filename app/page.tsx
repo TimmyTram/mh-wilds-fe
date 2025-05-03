@@ -5,8 +5,8 @@ import { helpfulLinks } from "./constants/constants";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center p-24 gap-4">
-      <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center p-4 md:p-24">
+      <div className="flex flex-col items-center gap-8">
 
         {/* Header */}
         <h1 className="text-4xl md:text-6xl font-bold">
@@ -66,6 +66,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
+        {/* <div className="w-full flex flex-col items-center border-4 bg-card rounded-lg shadow-lg p-10">
+                  
+        </div> */}
+
       </div>
     </div>
   );

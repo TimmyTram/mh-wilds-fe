@@ -34,7 +34,7 @@ const Content = ({ children }: ContentProps) => {
                     style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}
                 >
                     <div 
-                        className="fixed left-0 top-0 h-full w-64 z-40 p-4 shadow-lg transform transition-transform duration-300"
+                        className="fixed left-0 top-0 h-full w-64 z-40 shadow-lg transform transition-transform duration-300"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <Sidebar />
@@ -43,7 +43,7 @@ const Content = ({ children }: ContentProps) => {
             )}
             
             {/* Main Content Grid */}
-            <div className="grid grid-cols-8 gap-4 p-4 flex-1">
+            <div className="grid grid-cols-8 gap-4 flex-1">
                 {/* Desktop Sidebar (Part of Grid) */}
                 {!isMobile && showSidebar && (
                     <div className="col-span-3 md:col-span-2 lg:col-span-1">

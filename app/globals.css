@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --color-book: #3d1b10;
   --color-wilds-light: #fcce79;
