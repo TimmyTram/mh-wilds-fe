@@ -20,6 +20,8 @@ const config: Config = {
         secondary: "var(--color-secondary)",
         background: "var(--background)",
         foreground: "var(--foreground)",
+        wildsLight: "var(--color-wilds-light)",
+        wildsDark: "var(--color-wilds-dark)",
       },
     },
   },

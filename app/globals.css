@@ -4,6 +4,8 @@
 
 :root {
   --color-book: #3d1b10;
+  --color-wilds-light: #fcce79;
+  --color-wilds-dark: #d98724;
 }
 
 body {
