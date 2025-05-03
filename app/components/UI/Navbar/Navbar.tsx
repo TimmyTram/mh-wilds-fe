@@ -10,7 +10,7 @@ interface NavbarProps {
 const Navbar = ({ toggleSidebar }: NavbarProps) => {
     return (
         <div className="text-white sticky top-0 z-50 p-4 border-b-4 border-gray-500 flex flex-row justify-between items-center backdrop-blur-md">
-            <nav className="flex items-center gap-4">
+            <nav className="flex items-center gap-4 max-w-[500px]">
                 <button
                     className="cursor-pointer"
                     onClick={toggleSidebar}>
